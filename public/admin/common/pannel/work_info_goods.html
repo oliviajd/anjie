@@ -1,0 +1,319 @@
+<?php if ($edit['goods'] == true) {?>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            商品信息
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">★合同编号</span>
+                    <input name="constract_no" type="text" class="form-control constract_no" value="<?php echo $detail['constract_no']?>">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">车辆类型</span>
+                    <select name="product_class_number" class="form-control" disabled="disabled">
+                        <option value="XC" <?php echo $detail['product_class_number'] == 'XC' ? 'selected' : '' ?>>新车</option>
+                        <option value="ES" <?php echo $detail['product_class_number'] == 'ES' ? 'selected' : '' ?>>二手车</option>
+                    </select>
+                </div>
+            </div>
+           <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">★车辆品牌</span>
+                    <input name="car_brand" type="text" class="form-control car_brand" value="<?php echo $detail['car_brand']?>">
+                </div>
+            </div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">★车辆型号</span>
+                    <input name="car_type" type="text" class="form-control car_type" value="<?php echo $detail['car_type']?>">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">★车辆价格</span>
+                    <input name="car_price" onKeyUp="value=value.replace(/[^\d|.]/g,'')" type="text" class="form-control car_price" id="car_price" value="<?php echo $detail['car_price']?>">
+                    <span class="input-group-addon">元</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">★车架号</span>
+                    <input name="car_vehicle_identification_number" onKeyUp="value=value.replace(/[^a-zA-Z0-9]/g,'')"  maxlength="17" type="text" class="form-control car_vehicle_identification_number" value="<?php echo $detail['car_vehicle_identification_number']?>">
+                </div>
+            </div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">贷款银行</span>
+                    <input name="loan_bank" type="text" class="form-control" value="济南市工行" disabled="disabled">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">贷款形式</span>
+                    <input name="loan_type" type="text" class="form-control" value="信用卡贷款" disabled="disabled">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">★贷款金额</span>
+                    <input name="loan_prize" onKeyUp="value=value.replace(/[^\d|.]/g,'')" type="text" class="form-control loan_prize" value="<?php echo $detail['loan_prize']?>">
+                    <span class="input-group-addon">元</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">★贷款期数</span>
+                    <select name="loan_date" class="form-control loan_date">
+                        <option value="">请选择</option>
+                        <option value="3个月" <?php echo $detail['loan_date'] == '3个月' ? 'selected' : ''?> >3个月</option>
+                        <option value="6个月" <?php echo $detail['loan_date'] == '6个月' ? 'selected' : ''?> >6个月</option>
+                        <option value="12个月" <?php echo $detail['loan_date'] == '12个月' ? 'selected' : ''?> >12个月</option>
+                        <option value="24个月" <?php echo $detail['loan_date'] == '24个月' ? 'selected' : ''?> >24个月</option>
+                        <option value="36个月" <?php echo $detail['loan_date'] == '36个月' ? 'selected' : ''?> >36个月</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">★首付款</span>
+                    <input name="first_pay" onKeyUp="value=value.replace(/[^\d|.]/g,'')" type="text" class="form-control first_pay" id="first_pay" value="<?php echo $detail['first_pay']?>">
+                    <span class="input-group-addon">元</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">首付比例</span>
+                    <input name="first_pay_ratio" type="text" class="form-control first_pay_ratio" id="first_pay_ratio" value="<?php echo $detail['first_pay_ratio']?>"  disabled="disabled">
+                </div>
+            </div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">★利率</span>
+                    <input name="loan_rate" type="text" onKeyUp="value=value.replace(/[^\d|.]/g,'')" class="form-control loan_rate" value="<?php echo $detail['loan_rate']?>">
+                    <span class="input-group-addon">%</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">有无保险</span>
+                    <select name="has_insurance" class="form-control has_insurance">
+                        <option value="1" <?php echo $detail['has_insurance'] == 1 ? 'selected' : '' ?>>有保险</option>
+                        <option value="2" <?php echo $detail['has_insurance'] == 2 ? 'selected' : '' ?>>无保险</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="insurance_div <?php echo $detail['has_insurance'] == '2' ? 'hide' : ''?>">
+            <div class="row margin-bottom">
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">保险公司</span>
+                        <input name="insurance_company" type="text" class="form-control insurance_company" value="<?php echo $detail['insurance_company']?>">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">商业险</span>
+                        <input name="commercial_insurance" onKeyUp="value=value.replace(/[^\d|.]/g,'')" type="text" class="form-control commercial_insurance" value="<?php echo $detail['commercial_insurance']?>">
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-bottom">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">交强险</span>
+                        <input name="compulsory_insurance" onKeyUp="value=value.replace(/[^\d|.]/g,'')" type="text" class="form-control compulsory_insurance" value="<?php echo $detail['compulsory_insurance']?>">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">车船税</span>
+                        <input name="vehicle_vessel_tax" onKeyUp="value=value.replace(/[^\d|.]/g,'')" type="text" class="form-control vehicle_vessel_tax" value="<?php echo $detail['vehicle_vessel_tax']?>">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">保费总额</span>
+                        <input name="gross_premium" onKeyUp="value=value.replace(/[^\d|.]/g,'')" type="text" class="form-control gross_premium" value="<?php echo $detail['gross_premium']?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<?php } else {?>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            商品信息
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">合同编号</span>
+                    <input name="constract_no" type="text" class="form-control" value="<?php echo $detail['constract_no']?>" disabled="disabled">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">车辆类型</span>
+                    <select name="product_class_number" class="form-control" disabled="disabled">
+                        <option value="XC" <?php echo $detail['product_class_number'] == 'XC' ? 'selected' : '' ?>>新车</option>
+                        <option value="ES" <?php echo $detail['product_class_number'] == 'ES' ? 'selected' : '' ?>>二手车</option>
+                    </select>
+                </div>
+            </div>
+           <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">车辆品牌</span>
+                    <input name="car_brand" type="text" class="form-control" value="<?php echo $detail['car_brand']?>" disabled="disabled">
+                </div>
+            </div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">车辆型号</span>
+                    <input name="car_type" type="text" class="form-control" value="<?php echo $detail['car_type']?>" disabled="disabled">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">车辆价格</span>
+                    <input name="car_price"  type="text" class="form-control" value="<?php echo $detail['car_price']?>" disabled="disabled">
+                    <span class="input-group-addon">元</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">车架号</span>
+                    <input name="car_vehicle_identification_number" type="text" class="form-control car_vehicle_identification_number" value="<?php echo $detail['car_vehicle_identification_number']?>" disabled="disabled">
+                </div>
+            </div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">贷款银行</span>
+                    <input name="loan_bank" type="text" class="form-control" value="济南市工行" disabled="disabled">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">贷款形式</span>
+                    <input name="loan_type" type="text" class="form-control" value="信用卡贷款" disabled="disabled">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">贷款金额</span>
+                    <input name="loan_prize" type="text" class="form-control" value="<?php echo $detail['loan_prize']?>" disabled="disabled">
+                    <span class="input-group-addon">元</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">贷款期数</span>
+                    <select name="loan_date" class="form-control" disabled="disabled">
+                        <option value="0">请选择</option>
+                        <option value="3个月" <?php echo $detail['loan_date'] == '3个月' ? 'selected' : ''?> >3个月</option>
+                        <option value="6个月" <?php echo $detail['loan_date'] == '6个月' ? 'selected' : ''?> >6个月</option>
+                        <option value="12个月" <?php echo $detail['loan_date'] == '12个月' ? 'selected' : ''?> >12个月</option>
+                        <option value="24个月" <?php echo $detail['loan_date'] == '24个月' ? 'selected' : ''?> >24个月</option>
+                        <option value="36个月" <?php echo $detail['loan_date'] == '36个月' ? 'selected' : ''?> >36个月</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">首付款</span>
+                    <input name="first_pay"  type="text" class="form-control" value="<?php echo $detail['first_pay']?>" disabled="disabled">
+                    <span class="input-group-addon">元</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">首付比例</span>
+                    <input name="first_pay_ratio" type="text" class="form-control" value="<?php echo $detail['first_pay_ratio']?>" disabled="disabled">
+                </div>
+            </div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">利率</span>
+                    <input name="loan_rate" type="text" class="form-control" value="<?php echo $detail['loan_rate']?>" disabled="disabled">
+                    <span class="input-group-addon">%</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">有无保险</span>
+                    <select name="has_insurance" class="form-control has_insurance" disabled="disabled">
+                        <option value="1" <?php echo $detail['has_insurance'] == 1 ? 'selected' : '' ?>>有保险</option>
+                        <option value="2" <?php echo $detail['has_insurance'] == 2 ? 'selected' : '' ?>>无保险</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="insurance_div <?php echo $detail['has_insurance'] == '2' ? 'hide' : ''?>">
+            <div class="row margin-bottom">
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">保险公司</span>
+                        <input name="insurance_company" type="text" class="form-control" value="<?php echo $detail['insurance_company']?>" disabled="disabled">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">商业险</span>
+                        <input name="commercial_insurance"  type="text" class="form-control" value="<?php echo $detail['commercial_insurance']?>" disabled="disabled">
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-bottom">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">交强险</span>
+                        <input name="compulsory_insurance" type="text" class="form-control" value="<?php echo $detail['compulsory_insurance']?>" disabled="disabled">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">车船税</span>
+                        <input name="vehicle_vessel_tax" type="text" class="form-control" value="<?php echo $detail['vehicle_vessel_tax']?>" disabled="disabled">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">保费总额</span>
+                        <input name="gross_premium" type="text" class="form-control" value="<?php echo $detail['gross_premium']?>" disabled="disabled">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
+

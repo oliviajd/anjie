@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>林润万车后台管理中心</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!--include('common.css')-->
+		<link rel="shortcut icon" type="images/favicon.ico" href="/admin/images/favicon.ico" media="screen">
+		<link rel="stylesheet" href="/admin/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="/admin/AdminLTE/dist/css/AdminLTE.min.css" />
+		<link rel="stylesheet" type="text/css" href="/admin/AdminLTE/dist/css/skins/skin-blue.min.css" />
+		
+<link rel="stylesheet" href="/admin/AdminLTE/bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- daterange picker -->
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/datepicker/datepicker3.css">
+<!-- DataTables -->
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/admin/AdminLTE/dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="/admin/AdminLTE/dist/css/skins/_all-skins.min.css">
+<!-- treeview -->
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/bootstrap-treeview/bootstrap-treeview.min_16bd11d.css"> 
+<style type="text/css">
+			.blur {
+				border: 1px solid red;
+			}
+			
+			input:disabled {
+				background-color: #fff;
+			}
+			
+			body {
+				min-width: 1600px;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+			<!--include('common/header')-->
+			<header class="main-header">
+				<a href="/admin/home.html" class="logo">
+					<span class="logo-mini"><b>A</b>LT</span>
+					<span class="logo-lg"><b>IFcar</b></span>
+				</a>
+
+				<nav class="navbar navbar-static-top" role="navigation">
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+						<span class="sr-only">Toggle navigation</span>
+					</a>
+					<!-- Navbar Right Menu -->
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<li class="dropdown messages-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 4 messages</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+													</div>
+													<h4>
+                                                    Support Team
+                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                </h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">See All Messages</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown notifications-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 10 notifications</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<i class="fa fa-users text-aqua"></i> 5 new members joined today
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">View all</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown tasks-menu">
+								<ul class="dropdown-menu">
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="/auth/changepassword">
+													<h3>
+                                                 修改密码
+                                             </h3>
+												</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="user-image avatar" alt="User Image">
+
+									<span class="hidden-xs usernameWrite"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<!-- The user image in the menu -->
+									<li class="user-header">
+										<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+
+										<p>
+											<span class="accountWrite"></span>
+											<small class="usernameWrite"></small>
+										</p>
+									</li>
+									<li class="user-footer">
+										<div class="pull-left">
+											<a href="/admin/auth/changepassword" class="btn btn-default btn-flat changepassword">reset</a>
+										</div>
+										<div class="pull-right">
+											<a href="#" class="btn btn-default btn-flat signout">Sign out</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!-- 鼠标移动 -->
+					<aside class="control-sidebar control-sidebar-dark">
+						<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+							<li class="active">
+								<a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a>
+							</li>
+							<li>
+								<a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="control-sidebar-home-tab">
+								<h3 class="control-sidebar-heading">Recent Activity</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+											<div class="menu-info">
+												<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+												<p>Will be 23 on April 24th</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+								<h3 class="control-sidebar-heading">Tasks Progress</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<h4 class="control-sidebar-subheading">
+                                        Custom Template Design
+                                        <span class="pull-right-container">
+                                          <span class="label label-danger pull-right">70%</span>
+                                      </span>
+                                  </h4>
+
+											<div class="progress progress-xxs">
+												<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+							</div>
+							<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+							<div class="tab-pane" id="control-sidebar-settings-tab">
+								<form method="post">
+									<h3 class="control-sidebar-heading">General Settings</h3>
+
+									<div class="form-group">
+										<label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+										<p>
+											Some information about this general settings option
+										</p>
+									</div>
+								</form>
+							</div>
+						</div>
+					</aside>
+					<div class="control-sidebar-bg"></div>
+				</nav>
+			</header>
+			<!--include('common/sidebar')-->
+			<aside class="main-sidebar">
+				<title>
+					<?php if(isset($title)) {echo $title;}?>
+				</title>
+				<section class="sidebar">
+					<div class="user-panel">
+						<div class="pull-left image">
+							<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+						</div>
+						<div class="pull-left info">
+							<p class="usernameWrite">
+
+							</p>
+							<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+						</div>
+					</div>
+					<form action="#" method="get" class="sidebar-form">
+						<div class="input-group">
+							<input type="text" name="q" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+						</div>
+					</form>
+					<ul class="sidebar-menu">
+						<li class="treeview" cid="20">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>工作台</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu" cid="20">
+
+								<li methodid="280">
+									<a href="/admin/work/certification/certification.html">认证申请</a>
+								</li>
+								<li methodid="281">
+									<a href="/admin/work/financing/financing.html">融资申请</a>
+								</li>
+								<li methodid="282">
+									<a href="/admin/work/bidding/bidding.html">上标申请</a>
+								</li>
+								<li methodid="283">
+									<a href="/admin/work/repay/repay.html">客户待还款</a>
+								</li>
+								<li methodid="288">
+									<a href="/admin/work/transfer/transfer.html">客户待过户</a>
+								</li>
+								<li methodid="284">
+									<a href="/admin/work/certificationRecord/certificationRecord.html">认证申请记录</a>
+								</li>
+								<li methodid="285">
+									<a href="/admin/work/financingRecord/financingRecord.html">融资申请记录</a>
+								</li>
+								<li methodid="286">
+									<a href="/admin/work/biddingRecord/biddingRecord.html">上标申请记录</a>
+								</li>
+								<li methodid="293">
+									<a href="/admin/work/transferRecord/transferRecord.html">已过户记录</a>
+								</li>
+								<li methodid="294">
+									<a href="/admin/work/manage/manage.html">车商信息管理</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="treeview active" cid="12">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>用户权限</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu " cid="12">
+
+								<li methodid="251">
+									<a href="/admin/role/adduser/adduser.html">添加用户</a>
+								</li>
+								<li methodid="252">
+									<a href="/admin/role/userrole/userrole.html">用户角色</a>
+								</li>
+								<li methodid="253" class="active">
+									<a href="/admin/role/roleset/roleset.html">角色设置</a>
+								</li>
+								<!--<li methodid="289">
+									<a href="/admin/role/version/version.html">APP版本控制</a>
+								</li>-->
+							</ul>
+						</li>
+					</ul>
+					<!-- /.sidebar-menu -->
+				</section>
+				<!-- /.sidebar -->
+			</aside>
+			<div class="content-wrapper">
+				<section class="content">
+<div class="content-wrappers">
+                <!-- Content Header (Page header) -->
+                <!-- <section class="content-header">
+                    <h1>
+                        角色编辑
+                        <small>role edit</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/role/role_lists.html">角色管理</a></li>
+                        <li class="active">角色编辑</li>
+                    </ol>
+                </section> -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">角色信息</h3>
+                                    <div class="box-tools pull-right fade">
+                                        <button name="role-delete" type="button" class="btn btn-block btn-danger">删除</button>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>名称</label>
+                                            <input type="text" name="role[title]" class="form-control" placeholder="角色名称">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="tree">
+                       
+                               </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a class="btn btn-default" href="/admin/role/roleset/roleset.html">取消</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                        <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <a href="/admin/role/roleset/roleset.html" class="btn btn-default">返回列表</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    是否删除这个角色？
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" name="role-delete-confirm">确认</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                </section>
+</div>
+		</section>
+	</div>
+<footer class="main-footer">
+	<div class="pull-right hidden-xs">
+		Anything you want
+	</div>
+	<strong>Copyright &copy; 2017 <a href="#">ifcar</a>.</strong> All rights reserved.
+</footer>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="/admin/js/develop/jquery-3.1.1.min.js"></script>
+<script src="/admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/dist/js/app.min.js"></script> 
+<script type="text/javascript" src="/admin/js/develop/common.js"></script>
+<script src="/admin/AdminLTE/plugins/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+
+<script>         
+    $(function () {
+        var nodeCheckedSilent = false;  
+        function nodeChecked (event, node){  
+            if(nodeCheckedSilent){  
+                return;  
+            }  
+            nodeCheckedSilent = true;  
+            checkAllParent(node);  
+            checkAllSon(node);  
+            nodeCheckedSilent = false;  
+        }  
+          
+        var nodeUncheckedSilent = false;  
+        function nodeUnchecked  (event, node){  
+            if(nodeUncheckedSilent)  
+                return;  
+            nodeUncheckedSilent = true;  
+            uncheckAllParent(node);  
+            uncheckAllSon(node);  
+            nodeUncheckedSilent = false;  
+        }  
+          
+        //选中全部父节点  
+        function checkAllParent(node){  
+            $('#tree').treeview('checkNode',node.nodeId,{silent:true});  
+            var parentNode = $('#tree').treeview('getParent',node.nodeId);  
+            if(!("nodeId" in parentNode)){  
+                return;  
+            }else{  
+                checkAllParent(parentNode);  
+            }  
+        }  
+        //取消全部父节点  
+        function uncheckAllParent(node){  
+            $('#tree').treeview('uncheckNode',node.nodeId,{silent:true});  
+            var siblings = $('#tree').treeview('getSiblings', node.nodeId);  
+            var parentNode = $('#tree').treeview('getParent',node.nodeId);  
+            if(!("nodeId" in parentNode)) {  
+                return;  
+            }  
+            var isAllUnchecked = true;  //是否全部没选中  
+            for(var i in siblings){  
+                if(siblings[i].state.checked){  
+                    isAllUnchecked=false;  
+                    break;  
+                }  
+            }  
+            if(isAllUnchecked){  
+                uncheckAllParent(parentNode);  
+            }  
+          
+        }  
+          
+        //级联选中所有子节点  
+        function checkAllSon(node){  
+            $('#tree').treeview('checkNode',node.nodeId,{silent:true});  
+            if(node.nodes!=null&&node.nodes.length>0){  
+                for(var i in node.nodes){  
+                    checkAllSon(node.nodes[i]);  
+                }  
+            }  
+        }  
+        //级联取消所有子节点  
+        function uncheckAllSon(node){  
+            $('#tree').treeview('uncheckNode',node.nodeId,{silent:true});  
+            if(node.nodes!=null&&node.nodes.length>0){  
+                for(var i in node.nodes){  
+                    uncheckAllSon(node.nodes[i]);  
+                }  
+            }  
+        }  
+        var token = USER.get_token();
+        var role = {};
+        var role_id = 0;
+        var parent_id = 0;
+        var set_value = function (role) {
+            $('input[name="role[title]"]').val(role.title);
+        }
+        if (getUrlParam('role_id')) {//编辑模式
+            var role_id = getUrlParam('role_id');
+            ROLE.get({'role_id': role_id, token: token, callback: function (r) {
+                    if (r.error_no != 200) {
+                        var modal = $('#myModal');
+                        modal.find('.modal-body').text(r.error_msg);
+                        modal.modal('show');
+                        return;
+                    }
+                    role = r.result;
+                    set_value(role);
+                    $('.box-tools').removeClass('fade');
+                }});
+        } else {
+            parent_id = getUrlParam('parent_id');
+            if (!parent_id) {
+                $('button[type="submit"]').remove();
+                var modal = $('#myModal');
+                modal.find('.modal-body').text('非法请求！');
+                modal.modal('show');
+            }
+        }
+        ROLE.tree_permission({
+            'token': USER.get_token(),
+            'callback': function (r) {
+                if (r.error_no != 200) {
+                    var modal = $('#myModal');
+                    modal.find('.modal-body').text(r.error_msg);
+                    modal.modal('show');
+                    return;
+                }
+                if (r.error_no == 200) {
+                    var tree = [];
+                    for (var i in r.result.rows) {
+                        var row = r.result.rows[i];
+                        r.result.rows[i]['text'] = row.title;
+                        r.result.rows[i]['state'] = {expanded: true};
+                    }
+                    tree2 = listToTree(r.result.rows, {idKey: 'id', parentKey: 'cid', childrenKey: 'nodes'});
+                    $('#tree').treeview({data: tree2, showTags: true, showCheckbox: true, onNodeChecked:nodeChecked, onNodeUnchecked:nodeUnchecked});
+                }
+                ROLE.list_module({'role_id': role_id, token: token, callback: function (r) {
+                    if (r.error_no != 200) {
+                        var modal = $('#myModal');
+                        modal.find('.modal-body').text(r.error_msg);
+                        modal.modal('show');
+                        return;
+                    }
+                    for (var i in r.result.rows) {
+                        var row = r.result.rows[i];
+                        for (var k in tree2) {
+                            if (tree2[k]['id'] == 'modules_' + row['module_id']) {
+                                tree2[k].state.checked = true;
+                            }
+                        }
+                    }
+                    $('#tree').treeview({data: tree2, showTags: true, showCheckbox: true, onNodeChecked:nodeChecked, onNodeUnchecked:nodeUnchecked});
+                }});
+                ROLE.list_method({'role_id': role_id, token: token, callback: function (r) {
+                    if (r.error_no != 200) {
+                        var modal = $('#myModal');
+                        modal.find('.modal-body').text(r.error_msg);
+                        modal.modal('show');
+                        return;
+                    }
+                    for (var i in r.result.rows) {
+                        var row = r.result.rows[i];
+                        for (var k in tree2) {
+                            for (var j in tree2[k]['nodes']) {
+                                if (tree2[k]['nodes'][j]['id'] == 'methods_' + row['method_id']) {
+                                    tree2[k]['nodes'][j].state.checked = true;
+                                }
+                            }
+                        }
+                    }
+                    $('#tree').treeview({data: tree2, showTags: true, showCheckbox: true, onNodeChecked:nodeChecked, onNodeUnchecked:nodeUnchecked});
+                }});
+                ROLE.list_privilege({'role_id': role_id, token: token, callback: function (r) {
+                    if (r.error_no != 200) {
+                        var modal = $('#myModal');
+                        modal.find('.modal-body').text(r.error_msg);
+                        modal.modal('show');
+                        return;
+                    }
+                    for (var i in r.result.rows) {
+                        var row = r.result.rows[i];
+                        for (var k in tree2) {
+                            for (var j in tree2[k]['nodes']) {
+                                for (var h in tree2[k]['nodes'][j]['nodes']) {
+                                    if (tree2[k]['nodes'][j]['nodes'][h]['id'] == 'privilege_' + row['privilege_id']) {
+                                        tree2[k]['nodes'][j]['nodes'][h].state.checked = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    $('#tree').treeview({data: tree2, showTags: true, showCheckbox: true, onNodeChecked:nodeChecked, onNodeUnchecked:nodeUnchecked});
+                }});
+            }
+        });
+        $('button[type="submit"]').click(function () {
+            var role = {
+                'title': $('input[name="role[title]"]').val(),
+            }
+            var arr = $('#tree').treeview('getChecked');   //获取选中的对象
+            var permission = {modules: [], methods: [], privilege :[]};
+            for (var k in arr) {
+                var test = arr[k]['id'].split('_');
+                if (test[0] == 'methods') {
+                    permission['methods'].push(test[1]);
+                }
+                if (test[0] == 'modules') {
+                    permission['modules'].push(test[1]);
+                }
+                if (test[0] == 'privilege') {
+                    permission['privilege'].push(test[1]);
+                }
+            }
+            role['permission'] = JSON.stringify(permission);
+            if (!role_id) {
+                role['parent_id'] = parent_id;
+                ROLE.addrole({'role': role, token: token, callback: function (r) {
+                        var modal = $('#myModal');
+                        if (r.error_no == 200) {
+                            modal.find('.modal-body').text('操作成功！');
+                        } else {
+                            modal.find('.modal-body').text(r.error_msg);
+                        }
+                        modal.modal('show');
+                    }});
+            } else {
+                ROLE.updaterole({'role': role, token: token, 'role_id': role_id, callback: function (r) {
+                        var modal = $('#myModal');
+                        if (r.error_no == 200) {
+                            modal.find('.modal-body').text('操作成功！');
+                        } else {
+                            modal.find('.modal-body').text(r.error_msg);
+                        }
+                        modal.modal('show');
+                    }});
+            }
+            var rs = [];
+             // var arr = $('#tree').treeview('getChecked');   //获取选中的对象
+            // $('#tree').treeview('checkNode', [ 2, { silent: true } ]);  //选中节点，2为节点ID
+        });  
+        $('button[name="role-delete"]').click(function () {
+            var modal2 = $('#myModal2').modal('show');
+        });
+        $('button[name="role-delete-confirm"]').click(function () {
+            $('#myModal2').on('hidden.bs.modal', function (e) {
+                ROLE.delete({
+                    'role_id': role_id,
+                    'token': token,
+                    'callback': function (r) {
+                        if (r.error_no == 200) {
+
+                        } else {
+                        }
+                        var modal = $('#myModal');
+                        modal.find('.modal-body').text(r.error_msg);
+                        modal.modal('show');
+                    }
+                });
+            })
+            $('#myModal2').modal('hide');
+        }); 
+    });
+</script>

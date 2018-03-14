@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>林润万车后台管理中心</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!--include('common.css')-->
+		<link rel="shortcut icon" type="images/favicon.ico" href="/admin/images/favicon.ico" media="screen">
+		<link rel="stylesheet" href="/admin/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="/admin/AdminLTE/dist/css/AdminLTE.min.css" />
+		<link rel="stylesheet" type="text/css" href="/admin/AdminLTE/dist/css/skins/skin-blue.min.css" />
+		
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/imgviewer/viewer.min.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload_ec8bd4e.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload-ui_8be8b42.css">
+<noscript><link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload-noscript_77b97d2.css"></noscript>
+<noscript><link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload-ui-noscript_f95c011.css"></noscript>
+<link rel="stylesheet" href="/admin/css/zoom.css">
+<link rel="stylesheet" href="/admin/css/viewer.css">
+<style>
+	.pictures {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	.pictures>li {
+		float: left;
+		width: 33.3%;
+		height: 33.3%;
+		margin: 0 -1px -1px 0;
+		border: 1px solid transparent;
+		overflow: hidden;
+	}
+	
+	.pictures>li>img {
+		width: 100%;
+		cursor: -webkit-zoom-in;
+		cursor: zoom-in;
+	}
+	.box .col-md-3,.box .col-md-6{
+		margin-bottom: 20px !important;
+	}
+	
+	#billsUl .billsLi .billsDel.col-md-3{
+		margin-bottom: 0px !important;
+	}
+	
+	.header-tabs{
+		list-style: none;
+		position: absolute;
+		left: 100px;
+		top: 5px;
+	}
+	
+	.header-tab{
+		display: inline-block;
+		width: 100px;
+		height: 30px;
+		border-radius: 5px;
+		text-align: center;
+		color: #ffffff;
+		line-height: 30px;
+		background-color: green;
+		margin: 0 10px;
+	}
+	.modal-dialog {
+	    width: 800px;
+	    margin: 30px auto;
+	}
+	
+	#card-Div>.halfDiv{
+		width: 50%;
+		box-sizing: border-box;
+		display: inline-block;
+		padding: 10px;
+		height: 100%;
+		vertical-align: top;
+	}
+	
+	#card-Div .halfinner{
+		height: 100%;
+		border: 1px solid #f0f0f0;
+		border-radius: 5px;
+		vertical-align: top;
+	}
+	
+	#card-Div .halfSpan{
+		width: 50%;
+		height: 50%;
+		display: inline-block;
+		line-height: 90px;
+		text-align: center;
+		vertical-align: top;
+	}
+	
+	#card-Div .allSpan{
+		width: 100%;
+		height: 50%;
+		display: inline-block;
+		line-height: 58px;
+		font-size: 25px;
+		text-align: center;
+		vertical-align: top;
+	}
+	
+	#card-Div .card-all{
+		width: 100%;
+		height: 100%;
+		font-size: 20px;
+		text-align: center;
+		line-height: 170px;
+	}
+</style>
+<style type="text/css">
+			.blur {
+				border: 1px solid red;
+			}
+			
+			input:disabled {
+				background-color: #fff;
+			}
+			
+			body {
+				min-width: 1600px;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+			<!--include('common/header')-->
+			<header class="main-header">
+				<a href="/admin/home.html" class="logo">
+					<span class="logo-mini"><b>A</b>LT</span>
+					<span class="logo-lg"><b>IFcar</b></span>
+				</a>
+
+				<nav class="navbar navbar-static-top" role="navigation">
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+						<span class="sr-only">Toggle navigation</span>
+					</a>
+					<!-- Navbar Right Menu -->
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<li class="dropdown messages-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 4 messages</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+													</div>
+													<h4>
+                                                    Support Team
+                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                </h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">See All Messages</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown notifications-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 10 notifications</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<i class="fa fa-users text-aqua"></i> 5 new members joined today
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">View all</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown tasks-menu">
+								<ul class="dropdown-menu">
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="/auth/changepassword">
+													<h3>
+                                                 修改密码
+                                             </h3>
+												</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="user-image avatar" alt="User Image">
+
+									<span class="hidden-xs usernameWrite"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<!-- The user image in the menu -->
+									<li class="user-header">
+										<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+
+										<p>
+											<span class="accountWrite"></span>
+											<small class="usernameWrite"></small>
+										</p>
+									</li>
+									<li class="user-footer">
+										<div class="pull-left">
+											<a href="/admin/auth/changepassword" class="btn btn-default btn-flat changepassword">reset</a>
+										</div>
+										<div class="pull-right">
+											<a href="#" class="btn btn-default btn-flat signout">Sign out</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!-- 鼠标移动 -->
+					<aside class="control-sidebar control-sidebar-dark">
+						<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+							<li class="active">
+								<a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a>
+							</li>
+							<li>
+								<a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="control-sidebar-home-tab">
+								<h3 class="control-sidebar-heading">Recent Activity</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+											<div class="menu-info">
+												<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+												<p>Will be 23 on April 24th</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+								<h3 class="control-sidebar-heading">Tasks Progress</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<h4 class="control-sidebar-subheading">
+                                        Custom Template Design
+                                        <span class="pull-right-container">
+                                          <span class="label label-danger pull-right">70%</span>
+                                      </span>
+                                  </h4>
+
+											<div class="progress progress-xxs">
+												<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+							</div>
+							<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+							<div class="tab-pane" id="control-sidebar-settings-tab">
+								<form method="post">
+									<h3 class="control-sidebar-heading">General Settings</h3>
+
+									<div class="form-group">
+										<label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+										<p>
+											Some information about this general settings option
+										</p>
+									</div>
+								</form>
+							</div>
+						</div>
+					</aside>
+					<div class="control-sidebar-bg"></div>
+				</nav>
+			</header>
+			<!--include('common/sidebar')-->
+			<aside class="main-sidebar">
+				<title>
+					<?php if(isset($title)) {echo $title;}?>
+				</title>
+				<section class="sidebar">
+					<div class="user-panel">
+						<div class="pull-left image">
+							<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+						</div>
+						<div class="pull-left info">
+							<p class="usernameWrite">
+
+							</p>
+							<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+						</div>
+					</div>
+					<form action="#" method="get" class="sidebar-form">
+						<div class="input-group">
+							<input type="text" name="q" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+						</div>
+					</form>
+					<ul class="sidebar-menu">
+						<li class="treeview active" cid="20">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>工作台</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu" cid="20">
+
+								<li methodid="280">
+									<a href="/admin/work/certification/certification.html">认证申请</a>
+								</li>
+								<li methodid="281">
+									<a href="/admin/work/financing/financing.html">融资申请</a>
+								</li>
+								<li methodid="282">
+									<a href="/admin/work/bidding/bidding.html">上标申请</a>
+								</li>
+								<li methodid="283">
+									<a href="/admin/work/repay/repay.html">客户待还款</a>
+								</li>
+								<li methodid="288">
+									<a href="/admin/work/transfer/transfer.html">客户待过户</a>
+								</li>
+								<li methodid="284">
+									<a href="/admin/work/certificationRecord/certificationRecord.html">认证申请记录</a>
+								</li>
+								<li methodid="285">
+									<a href="/admin/work/financingRecord/financingRecord.html">融资申请记录</a>
+								</li>
+								<li methodid="286">
+									<a href="/admin/work/biddingRecord/biddingRecord.html">上标申请记录</a>
+								</li>
+								<li methodid="293">
+									<a href="/admin/work/transferRecord/transferRecord.html">已过户记录</a>
+								</li>
+								<li methodid="294" class="active">
+									<a href="/admin/work/manage/manage.html">车商信息管理</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="treeview" cid="12">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>用户权限</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu " cid="12">
+
+								<li methodid="251">
+									<a href="/admin/role/adduser/adduser.html">添加用户</a>
+								</li>
+								<li methodid="252">
+									<a href="/admin/role/userrole/userrole.html">用户角色</a>
+								</li>
+								<li methodid="253">
+									<a href="/admin/role/roleset/roleset.html">角色设置</a>
+								</li>
+								<!--<li methodid="289" class="active">
+									<a href="/admin/role/version/version.html">APP版本控制</a>
+								</li>-->
+							</ul>
+						</li>
+					</ul>
+					<!-- /.sidebar-menu -->
+				</section>
+				<!-- /.sidebar -->
+			</aside>
+			<div class="content-wrapper">
+				<section class="content">
+<div class="content-wrappers">
+	<!-- Content Header (Page header) -->
+	<!-- <section class="content-header">
+        <h1>
+            征信报告详情页
+            <small>inquire</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/Admin"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="/Admin/work/inquire">征信报告</a></li>
+            <li class="active">征信报告详情页</li>
+        </ol>
+    </section> -->
+</div><br/>
+<div class="container1">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box">
+				<div class="box-header with-border" style="position: relative;">
+					<h3 class="box-title">车商资料</h3>
+					<ul class="header-tabs">
+						<a href="###"><li class="header-tab" tabType='1'>影像资料</li></a>
+						<a href="###"><li class="header-tab" tabType='2'>还款记录</li></a>
+						<a href="###"><li class="header-tab" tabType='3'>资金明细</li></a>
+						<a href="###"><li class="header-tab" tabType='4'>融资申请记录</li></a>
+						<a href="###"><li class="header-tab" tabType='5'>车辆估价记录</li></a>
+					</ul>
+				</div>
+				<div class="box-body">
+
+					<div class="panel panel-default">
+						<div class="panel-heading" style="position: relative;">
+							<h3 class="panel-title">
+            基本信息
+        </h3>
+        					<div type="submit" data-status="2" class="rewriteBtn" style="width: 110px;color: #ffffff;background-color: #00a65a;display: inline-block;height: 100%;position: absolute;right: 0px;top: 0;line-height: 38px;text-align: center;overflow: hidden;">编辑</div>
+        					<div type="submit" data-status="2" class="rewriteCancel" style="width: 110px;color: #ffffff;background-color: #00a65a;display: none;height: 100%;position: absolute;right: 115px;top: 0;line-height: 38px;text-align: center;overflow: hidden;">取消</div>
+        					<div type="submit" data-status="2" class="rewriteSave" style="width: 110px;color: #ffffff;background-color: #00a65a;display: none;height: 100%;position: absolute;right: 0px;top: 0;line-height: 38px;text-align: center;overflow: hidden;">保存</div>
+						</div>
+						<div class="panel-body">
+							<div class="row margin-bottom">
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">客户姓名</span>
+										<input type="text" class="form-control customer_name" value="" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">性别</span>
+										<input type="text" class="form-control customer_sex" placeholder="" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">身份证号</span>
+										<input type="text" class="form-control customer_certificate_number" value="" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">年龄</span>
+										<input type="text" class="form-control customer_age" placeholder="" maxlength="18" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">手机号</span>
+										<input type="text" class="form-control customer_telephone" onKeyUp="value=value.replace(/[^\d|xX]/g,'')" value="" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">认证类型</span>
+										<input type="text" class="form-control customer_type" value="" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3 typeSel" style="display: none;">
+									<div class="input-group">
+										<span class="input-group-addon">营业执照号</span>
+										<input type="text" class="form-control customer_company_no customer_licence" value="" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3 typeSel" style="display: none;">
+									<div class="input-group">
+										<span class="input-group-addon">公司名称</span>
+										<input type="text" class="form-control customer_company_name" value="" disabled="disabled">
+									</div>
+								</div>
+								<!--<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">成立时间</span>
+										<input type="text" class="form-control customer_createtime" value="" disabled="disabled">
+									</div>
+								</div>-->
+								<div class="col-md-6">
+									<div class="input-group">
+										<span class="input-group-addon">店铺名称</span>
+										<input type="text" class="form-control customer_shopname" value="" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">所在地区</span>
+										<input type="text" class="form-control customer_city" value="" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">详细地址</span>
+										<input type="text" class="form-control customer_address" value="" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">成立时间</span>
+										<input type="text" id="reservationtime" class="form-control customer_createtime" placeholder="" maxlength="18" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">主营业务</span>
+										<input type="text" class="form-control customer_primary" placeholder="" maxlength="18" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-6 typeSel" style="visibility: hidden;display: none;">
+									<div class="input-group">
+										<span class="input-group-addon"></span>
+										<input type="text" class="form-control" placeholder="" maxlength="18" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">授信额度</span>
+										<input type="text" class="form-control money_have" placeholder="" maxlength="18" disabled="disabled">
+										<span class="input-group-addon">元</span>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">已用额度</span>
+										<input type="text" class="form-control money_use" placeholder="" maxlength="18" disabled="disabled">
+										<span class="input-group-addon">元</span>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">剩余额度</span>
+										<input type="text" class="form-control money_sur" placeholder="" maxlength="18" disabled="disabled">
+										<span class="input-group-addon">元</span>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">信用评分</span>
+										<select id="" class="form-control score1" disabled="disabled">
+											<option value="">无</option>
+											<option value="0">0星</option>
+											<option value="1">0.5星</option>
+											<option value="2">1星</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">经营评分</span>
+										<select id="" class="form-control score2" disabled="disabled">
+											<option value="">无</option>
+											<option value="0">0星</option>
+											<option value="1">0.5星</option>
+											<option value="2">1星</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">资产评分</span>
+										<select id="" class="form-control score3" disabled="disabled">
+											<option value="">无</option>
+											<option value="0">0星</option>
+											<option value="1">0.5星</option>
+											<option value="2">1星</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">负债评分</span>
+										<select id="" class="form-control score4" disabled="disabled">
+											<option value="">无</option>
+											<option value="0">0星</option>
+											<option value="1">0.5星</option>
+											<option value="2">1星</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon">增信评分</span>
+										<select id="" class="form-control score5" disabled="disabled">
+											<option value="">无</option>
+											<option value="0">0星</option>
+											<option value="1">0.5星</option>
+											<option value="2">1星</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="row margin-bottom">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-addon">居住地址</span>
+                    <input type="text" class="form-control" value="<?php echo $detail['customer_address']?>" disabled="disabled">
+                </div>
+            </div>
+        </div> -->
+						</div>
+
+					</div>
+					<div style="overflow: hidden;">
+						<div class="col-md-6" style="padding-left: 0;">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+		            贷款详情
+		        </h3>
+								</div>
+								<div class="panel-body" style="height: 200px;">
+									<div class="col-md-6">
+										<div class="input-group">
+											<span class="input-group-addon">累计逾期</span>
+											<input type="text" class="form-control customer_overday" value="" disabled="disabled">
+											<span class="input-group-addon">次</span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="input-group">
+											<span class="input-group-addon">累计提现</span>
+											<input type="text" class="form-control customer_getmoney" value="" disabled="disabled">
+											<span class="input-group-addon">元</span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="input-group">
+											<span class="input-group-addon">剩余待还款</span>
+											<input type="text" class="form-control customer_repay" value="" disabled="disabled">
+											<span class="input-group-addon">元</span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="input-group">
+											<span class="input-group-addon">累计已还款</span>
+											<input type="text" class="form-control customer_repaynow" value="" disabled="disabled">
+											<span class="input-group-addon">元</span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="input-group">
+											<span class="input-group-addon">累计贷款</span>
+											<input type="text" class="form-control customer_loan" value="" disabled="disabled">
+											<span class="input-group-addon">元</span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="input-group">
+											<span class="input-group-addon">可提现金额</span>
+											<input type="text" class="form-control customer_canget" value="" disabled="disabled">
+											<span class="input-group-addon">元</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6" style="padding-right: 0;">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+		            融资账户
+		        </h3>
+								</div>
+								<div class="panel-body" id="card-Div" style="height: 200px;">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					<div class="panel panel-default">
+						<div class="panel-heading" style="position: relative;">
+							<h3 class="panel-title">
+                           		 车商相关文件资料（压缩包格式，支持zip/rar，限一个）
+                        	</h3>
+                        	<div type="submit" data-status="2" class="imgsBtn" style="width: 110px;color: #ffffff;background-color: #00a65a;display: inline-block;height: 37px;position: absolute;right: 0px;top: 0;line-height: 38px;text-align: center;overflow: hidden;">
+                            	上传
+                            	<form id="billsForm" enctype="multipart/form-data"><input type="file" name="file" class="form-control" id="billsInp" style="position: absolute;width: 200px;padding: 0;opacity: 0;height: 100px;left: 0;top: 0;"></form>
+                        	</div>
+						</div>
+						<div class="panel-body">
+							<ul class="col-md-12" id="billsUl"></ul>
+						</div>
+					</div>
+
+					<!--<div class="form-group" id="submit">-->
+					<!-- <button type="submit" data-status="3" class="btn btn-warning" style="width: 100px;height: 40px;margin-left: 10px;">
+                            退件
+                        </button>
+                        <button type="submit" data-status="2" class="btn btn-default" style="width: 100px;height: 40px;margin-left: 10px;">
+                            暂存
+                        </button> -->
+					<!--<button type="submit" data-status="1" class="btn btn-success" style="width: 100px;height: 40px;margin-left: 10px;">
+                            提交
+                        </button>                                               -->
+					<!--</div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="source_window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  
+    <div class="modal-dialog" role="document">  
+        <div class="modal-content">  
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
+                    <span aria-hidden="true">×</span>  
+                </button>  
+                <h4 class="modal-title" id="myModalLabel">客户影像资料</h4>  
+            </div>  
+            <div class="modal-body" style="width: 770px; height: 700px;">
+				<div style="position: fixed;margin-right: 15px;" id="source_window">
+					<div class="box">
+						<div style="background: #ddd;">
+							<div id="galley">
+								<ul class="pictures" style="position: relative;"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>   
+        </div>  
+    </div>  
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" class="btn btn-default modal_close" data-dismiss="modal">Close</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+		</section>
+	</div>
+<footer class="main-footer">
+	<div class="pull-right hidden-xs">
+		Anything you want
+	</div>
+	<strong>Copyright &copy; 2017 <a href="#">ifcar</a>.</strong> All rights reserved.
+</footer>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="/admin/js/develop/jquery-3.1.1.min.js"></script>
+<script src="/admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/dist/js/app.min.js"></script> 
+<script type="text/javascript" src="/admin/js/develop/common.js"></script>
+<script src="/admin/js/viewer.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/plugins/moment/moment.min.js"></script>
+<script src="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+
+<script type="text/javascript">
+	var token = USER.get_token();
+	var csrid = GetQueryString('id');
+	var userid = GetQueryString('user_id');
+	var billid = GetQueryString('billid');
+	var getmoney = GetQueryString('money');
+	var getmoney2 = GetQueryString('money2');
+	var repaytype = GetQueryString('repaytype');
+	var repaytime = GetQueryString('repaytime');
+	var overtime = Number(GetQueryString('overtime'));
+	var carbrand = decodeURI(GetQueryString('carbrand'));
+	var billno = decodeURI(GetQueryString('billno'));
+	var cartype = GetQueryString('cartype');
+	var certype = 'per';
+	var start_time = Date.parse(new Date()) / 1000;
+	var overDay1;
+	var overDay2;
+	var repaytypeStr = '';
+	var onWrite = false;// 编辑状态
+	function changeWrite(){
+		onWrite = !onWrite;
+		if(onWrite){
+			$('.rewriteSave').css('display','inline-block');
+			$('.rewriteCancel').css('display','inline-block');
+			$('.rewriteBtn').css('display','none');
+			$('.customer_createtime').removeAttr('disabled');
+			$('.customer_primary').removeAttr('disabled');
+			$('.money_have').removeAttr('disabled');
+			$('.score1').removeAttr('disabled');
+			$('.score2').removeAttr('disabled');
+			$('.score3').removeAttr('disabled');
+			$('.score4').removeAttr('disabled');
+			$('.score5').removeAttr('disabled');
+		} else {
+			$('.rewriteSave').css('display','none');
+			$('.rewriteCancel').css('display','none');
+			$('.rewriteBtn').css('display','inline-block');
+			$('.customer_createtime').attr('disabled','disabled');
+			$('.customer_primary').attr('disabled','disabled');
+			$('.money_have').attr('disabled','disabled');
+			$('.score1').attr('disabled','disabled');
+			$('.score2').attr('disabled','disabled');
+			$('.score3').attr('disabled','disabled');
+			$('.score4').attr('disabled','disabled');
+			$('.score5').attr('disabled','disabled');
+		}
+	}
+	
+//	if(overtime >= 1) {
+//		overDay1 = parseInt(overtime) + '天';
+//		overDay2 = '0天';
+//	} else if(overtime >= 0 && overtime < 1){
+//		overDay1 = '到期还款';
+//		overDay2 = '0天';
+//	} else {
+//		overDay1 = '已逾期';
+//		overDay2 = parseInt((-1) * overtime) + '天';
+//	}
+// 删除资料li
+	function delThis(_this){
+		$(_this).parent().parent().remove();
+	}
+	
+	function putSource(sources) {
+        SOURCE.init({
+            data: sources,
+            onChange: function (Class) {
+//                  $('#source_length').text('共' + SOURCE.get_length(Class) + '张');
+            },
+            onRemove: function (Class, obj) {
+            	return;
+                if (!img_delete.hasOwnProperty(Class)) {
+                    img_delete = {
+                        'source_type': SOURCE._data[Class]['source_type'],
+                        'source_lists': [],
+                    }
+                    img_delete.source_lists.push(obj);
+                }
+            }
+        });
+        SOURCE.show();
+    }
+	var source_select = function (id) {
+        var n = $('#' + id);
+        n.parent().parent().children().each(function () {
+            $(this).children().last().removeClass('text-green');
+        });
+        n.parent().children().last().addClass('text-green');
+    }
+    $('#source_type1,#source_type2,.source_length').click(function () {//图片类别发生变化时重新加载插件
+        if ($(this).attr('data-class') != SOURCE.current_Class) {
+            SOURCE.show($(this).attr('data-class'));
+            source_select($(this).attr('id'));
+        }
+    });
+	$(function() {
+		//      var oStartDate = new Date();var oEndDate = new Date();oStartDate.setDate(oStartDate.getDate() - 7);oStartDate.setHours(0,0,0);oEndDate.setHours(23,59,59);$('#reservationtime').daterangepicker({showDropdowns:true,timePicker24Hour:true,startDate:oStartDate,endDate:oEndDate,timePicker: true, timePickerIncrement: 1, format: 'MM/DD/YYYY h:mm A'});
+		$.ajax({
+			type: 'post',
+			url: apiurl + 'Jcr/jcd/getdealerinfo',
+			dataType: 'json',
+			data: {
+				'token': token,
+				'user_id': userid,
+			},
+			success: function(r) {
+//				console.log(JSON.stringify(r))
+				if(r.error_no == 200) {
+					
+					// 绑定tab点击事件
+					$('.header-tab').click(function(){
+						var tabNum = $(this).attr('tabType');
+						switch(tabNum){
+							case '1': $('#source_window').modal('show');
+							break;
+							case '2': location.href = '/admin/work/manage/manage-repay.html?id=' + userid;
+							break;
+							case '3': location.href = '/admin/work/manage/manage-listRecord.html?id=' + userid;
+							break;
+							case '4': location.href = '/admin/work/manage/manage-financingRecord.html?id=' + userid;
+							break;
+							case '5': location.href = '/admin/work/manage/manage-judgeRecord.html?id=' + userid;
+							break;
+						}
+					})
+					
+					if(r.result.verify_type == 2) {
+						certType = "sel";
+						$(".typeSel").css('display', 'block');
+						$(".typePer").css('display', 'none');
+						$(".customer_type").val('商户认证');
+						$(".customer_createtime").val(time_to_str_ymd(r.result.foundtime))
+					} else {
+						$(".customer_type").val('个人认证');
+					}
+					$('.customer_name').val(r.result.name); //客户姓名
+					$('.customer_sex').val(r.result.sex); //客户性别
+					$('.customer_certificate_number').val(r.result.certificate_number); //客户身份证号
+					$('.customer_age').val(r.result.age); //客户年龄
+					$('.customer_telephone').val(r.result.loginname); //客户手机号码
+					$('.customer_licence').val(r.result.business_license_number); //营业执照号
+					$('.customer_company_name').val(r.result.company_name); //公司名称
+					$('.customer_shopname').val(r.result.shopname); //店铺名称
+					$('.customer_city').val(r.result.area); //所在地区
+					$('.customer_address').val(r.result.address); //店铺名称
+					$('.customer_primary').val(r.result.main_business);// 主营业务
+					$('.money_have').val(floatFun.multi(r.result.quota , 10000));// 授信额度
+					$('.money_use').val(floatFun.multi(r.result.use_quota , 10000));// 已用额度
+					$('.money_sur').val(floatFun.multi(floatFun.sub(r.result.quota , r.result.use_quota) , 10000));// 剩余额度
+//					$('.customer_money').val(r.result.money * 10000); //融资金额
+//					$('.customer_deadline').val(r.result.deadline); //融资期限
+//					$('.customer_car').val(r.result.car_stock); //库存车辆
+//					$('.customer_per').val(r.result.rate); //融资利率
+//					$('.customer_primary').val(r.result.main_business); //主营业务
+					
+// 融资账号卡号
+if(r.result.bank_account.account_id != null && r.result.bank_account.account_id != ''){
+	$("#card-Div").html("<div class='halfDiv'><div class='halfinner'><span class='halfSpan'>" + r.result.bank_account.card.bank_name + "</span><span class='halfSpan'>电子交易账户</span><span class='allSpan'>" + r.result.bank_account.account_id + "</span></div></div><div class='halfDiv'><div class='halfinner'><span class='halfSpan'>收款卡号</span><span class='halfSpan'></span><span class='allSpan'>" + r.result.bank_account.card.card_No + "</span></div></div></div>")
+} else {
+	$("#card-Div").html("<div class='card-all'>还未开通融资账户</div>")
+}
+					// 贷款详情
+					if(r.result.loan_info != 'null' && r.result.loan_info != null){
+						$('.customer_overday').val(r.result.loan_info.result.borrower_stats.overdue_num);// 累计逾期
+						$('.customer_getmoney').val(r.result.loan_info.result.borrower_stats.cashed_money);// 累计提现
+						$('.customer_repay').val(r.result.loan_info.result.borrower_stats.repay_money);// 剩余待还款
+						$('.customer_repaynow').val(r.result.loan_info.result.borrower_stats.repiad_money);// 累计已还款
+						$('.customer_loan').val(r.result.loan_info.result.borrower_stats.borrowed_money);// 累计贷款
+						$('.customer_canget').val(r.result.loan_info.result.borrower_stats.balance);// 可提现金额
+					}
+					
+					if(r.result.credit_score == 0 || r.result.credit_score == 1 || r.result.credit_score == 2){
+               			$('.score1').val(r.result.credit_score);
+               		}
+               		if(r.result.manage_score == 0 || r.result.manage_score == 1 || r.result.manage_score == 2){
+               			$('.score2').val(r.result.manage_score);
+               		}
+               		if(r.result.assets_score == 0 || r.result.assets_score == 1 || r.result.assets_score == 2){
+               			$('.score3').val(r.result.assets_score);
+               		}
+               		if(r.result.debt_score == 0 || r.result.debt_score == 1 || r.result.debt_score == 2){
+               			$('.score4').val(r.result.debt_score);
+               		}
+               		if(r.result.conducive_score == 0 || r.result.conducive_score == 1 || r.result.conducive_score == 2){
+               			$('.score5').val(r.result.conducive_score);
+               		}
+					$("#tableInfo").html("<td>1</td><td>" + r.result.name + "</td><td>" + r.result.csr_no + "</td><td>" + r.result.loginname + "</td><td>" + carbrand + "</td><td>" + (cartype == 1 ? '新车' : '二手车') + "</td><td>" + getmoney2 + "元</td><td>" + getmoney + "元</td><td>" + time_to_str_ymd(repaytime) + "</td><td>" + time_to_str_ymd(overtime) + "</td><td>" + repaytypeStr + "</td>")
+					//测试图片地址
+//					for(var o in r.result.imgs){
+//						r.result.imgs[o].file_path = 'http://anjie.ifcar99.com/uploads/image/20171101/f991899d61b8534b10f7f9880c9cd077.jpg'
+//					}
+					// 加载图片
+					if(r.result.imgs.length > 0){
+            			putSource(loadSources(r.result.imgs))
+            		}
+					// 填入文件
+					if(r.result.dealerimgs.length > 0){
+						$('#billsUl').html("<li class='col-md-12 billsLi' fid='" + r.result.dealerimgs[0].file_id + "' alt='" + r.result.dealerimgs[0].file_path + "' fname='" + r.result.dealerimgs[0].filename + "' style='background-color: #ccc;padding: 5px 0;margin: 5px 0;overflow: hidden;'><div class='col-md-1'></div><div class='col-md-8'>" + r.result.dealerimgs[0].filename + "</div><div class='col-md-3 billsDel'><a target='_blank' href='" + r.result.dealerimgs[0].file_path + "'><span style='cursor: pointer;' onclick=''>下载</span></a><span> | </span><span style='cursor: pointer;' onclick='delThis(this)'>删除</span></div></li>");
+					}
+					// 时间插件
+					// 成立时间
+					if(!/^[0-9]{10}$/.test(r.result.foundtime)){
+						start_time = Date.parse(new Date()) / 1000;
+					} else {
+						start_time = r.result.foundtime;
+					}
+					$(".customer_createtime").val(time_mdy_exchange(time_to_str_ymd_num(start_time)))
+               		$('#reservationtime').daterangepicker({
+						showDropdowns: true,
+						singleDatePicker: true,
+						opens: 'left',
+						timePickerIncrement: 1,
+						format: 'MM/DD/YYYY'
+					});
+					$('#reservationtime').on('apply.daterangepicker', function(ev, picker) {
+						start_time = Date.parse(picker.startDate) / 1000;
+					});
+					$('#reservationtime').on('outside.daterangepicker', function(ev, picker) {
+						start_time = Date.parse(picker.startDate) / 1000;
+					});
+					if(!/^[0-9]{10}$/.test(r.result.foundtime)){
+						$(".customer_createtime").val('无')
+					}
+					$('.rewriteCancel').click(function(){
+						changeWrite();
+					})
+					$('.rewriteBtn').click(function(){
+						$(".customer_createtime").val(time_mdy_exchange(time_to_str_ymd_num(start_time)))
+						changeWrite();
+					})
+					$('.rewriteSave').click(function(){
+						
+						if ($('.customer_primary').val() == '' || $('.money_have').val() == '') {
+			                var modal = $('#myModal');
+			                modal.find('.modal-body').text('请填写完整');
+			                modal.modal('show');
+			                return false;
+			            }
+	        			if($('.score1').val() == '' || $('.score2').val() == '' || $('.score3').val() == '' || $('.score4').val() == '' || $('.score5').val() == ''){
+	        				var modal = $('#myModal');
+			                modal.find('.modal-body').text('请填写完整');
+			                modal.modal('show');
+			                return false;
+	        			}
+	        			var paramC = {
+	        				'token': token,
+	        				'main_business':$('.customer_primary').val(),
+	        				'foundtime': start_time,
+	        				'manage_score':$('.score2').val(),
+	        				'credit_score':$('.score1').val(),
+	        				'assets_score':$('.score3').val(),
+	        				'debt_score':$('.score4').val(),
+	        				'conducive_score':$('.score5').val(),
+//				        				'csr_id':,
+//				        				'verify_id':,
+	        				'user_id':userid,
+				        	'quota': ($(".money_have").val() / 10000),
+	        			}
+//	        			paramC.csrimgs = {
+//			            	'10': {
+//			            		'source_type': 'video',
+//			            		'source_lists': []
+//			            	}
+//			            }
+//			            
+//			            $(".billsLi").each(function(){
+//			            	var _this = $(this);
+//			            	var imgsJson = {
+//			            		'org': _this.attr('alt'),
+//			            		'src': _this.attr('alt'),
+//			            		'alt': _this.attr('fid'),
+//			            		'filename': _this.attr('fname'),
+//			            	}
+//			            	paramC.csrimgs['10'].source_lists.push(imgsJson);
+//			            })
+//			            if(paramC.csrimgs['10'].source_lists.length < 1){
+//			            	var modal = $('#myModal');
+//			                modal.find('.modal-body').text('请上传车商资料');
+//			                modal.modal('show');
+//			                return;
+//			            }
+			            $.ajax({
+			    			type:"post",
+			    			url: apiurl + "Jcr/jcd/updatecredit/",
+			    			data: paramC,
+			    			dataType: 'json',
+			    			success: function(cr){
+			    				if(cr.error_no == 200){
+			    					changeWrite();
+			    					var modal = $('#myModal');
+					                modal.find('.modal-body').text(cr.error_msg);
+					                modal.modal('show');
+//					                $('.modal_close').click(function () {
+//				                        window.location.href = '/admin/work/financing/financing.html';
+//				                    });
+			    				} else {
+			    					var modal = $('#myModal');
+					                modal.find('.modal-body').text(cr.error_msg);
+					                modal.modal('show');
+			    				}
+			    			}
+			    			
+			    		});
+					})
+					$('#billsInp').on('change',function(){ // 上传车商资料文件
+			        	addSource($('#billsForm')[0],function(r,fname){
+			        		console.log(JSON.stringify(r))
+			        		var paramC = {
+								'token': token,
+								'user_id':userid,
+							}
+							paramC.csrimgs = {
+				            	'10': {
+				            		'source_type': 'video',
+				            		'source_lists': []
+				            	}
+			            	}
+							var imgsJson = {
+			            		'org': r.result.url,
+			            		'src': r.result.url,
+			            		'alt': r.result.fid,
+			            		'filename': fname//r.result.url.match(/^.+\/(\w+\.\w+)/i)[1],
+			            	}
+							paramC.csrimgs['10'].source_lists.push(imgsJson);
+//							$(".billsLi").each(function(){
+//				            	var _this = $(this);
+//				            	
+//				            })
+							$.ajax({
+				    			type:"post",
+				    			url: apiurl + "Jcr/jcd/updateimage/",
+				    			data: paramC,
+				    			dataType: 'json',
+				    			success: function(cr){
+				    				if(cr.error_no == 200){//$('#billsForm').find("input")[0].files[0].name
+				    					$('#billsUl').html("<li class='col-md-12 billsLi' fid='" + r.result.fid + "' alt='" + r.result.url + "' fname='" + fname  + "' style='background-color: #ccc;padding: 5px 0;margin: 5px 0;overflow: hidden;'><div class='col-md-1'></div><div class='col-md-8'>" + fname + "</div><div class='col-md-3 billsDel'><a target='_blank' href='" + r.result.url + "'><span style='cursor: pointer;' >下载</span></a><span> | </span><span style='cursor: pointer;' onclick='delThis(this)'>删除</span></div></li>");
+				    					var modal = $('#myModal');
+						                modal.find('.modal-body').text(cr.error_msg);
+						                modal.modal('show');
+//						                $('.modal_close').click(function () {
+//					                        window.location.href = '/admin/work/financing/financing.html';
+//					                    });
+				    				} else {
+				    					var modal = $('#myModal');
+						                modal.find('.modal-body').text(cr.error_msg);
+						                modal.modal('show');
+				    				}
+				    			}
+				    			
+				    		});	
+			        	})
+			        })
+					
+				}
+			}
+		})
+		
+		
+		function addSource(sourceForm,callback){// 上传文件后生成对应的li或tr
+        	var formData = new FormData(sourceForm);
+        	formData.append('token',token);
+        	formData.append('sync_to_upyun', 2);
+        	formData.append('type','video');
+        	var f_name = $(sourceForm).find("input")[0].files[0].name;
+        	var geshi = /\.[^\.]+$/.exec($(sourceForm).find("input")[0].files[0].name)[0]; // 获取文件后缀名
+        	if(geshi != ".zip" && geshi != ".rar"){
+        		alert("请上传zip或rar格式的压缩包");
+        		$(sourceForm).find("input").val('');
+        		return;
+        	}
+        	$.ajax({
+        		type:"post",
+        		dataType:'json',
+        		url: apiurlA + 'file/upload/form/notoken/',//"Api/file/upload/",
+        		async: true,
+        		processData: false,  // 告诉jQuery不要去处理发送的数据
+                contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+        		data: formData,//{'token' : token,'sync_to_upyu': 2,'type':'image','file': sourceInp.files[0]},
+        		success: function(r){
+        			if(r.error_no == 200){
+        				callback(r,f_name);
+        				$(sourceForm).find("input").val('');
+        			}
+        		},
+        		error: function(r){
+//      			console.log(r)
+        		}
+        	});
+        }
+		function sizeExchange(size){
+        	if(size < 1000){
+        		return size.toFixed(2) + "B";
+        	} else if (size >= 1000 && size < 1000000){
+        		return (size/1000).toFixed(2) + "KB";
+        	} else if (size >= 1000000){
+        		return (size/1000000).toFixed(2) + "MB";
+        	}
+        }
+		$(".credit_request_submit").click(function() {
+			if($(".transferRes").val() == 1) {
+				$('.credit_request_submit').prop('disabled', true);
+				$.ajax({
+					type: 'post',
+					url: apiurl + 'Jcr/jcd/transferhandle',
+					dataType: 'json',
+					data: {
+						'token': token,
+						'bill_id': billid
+					},
+					success: function(r) {
+						$('.credit_request_submit').prop('disabled', false);
+						if(r.error_no == 200){
+							window.location.href = '/admin/work/transfer/transfer.html';
+						} else {
+							var modal = $('#myModal');
+                    		modal.find('.modal-body').text(r.error_msg);
+                    		modal.modal('show');
+						}
+					},
+					error: function(r){
+						$('.credit_request_submit').prop('disabled', false);
+					}
+				})
+			} else if($(".transferRes").val() == 0){
+				var modal = $('#myModal');
+                modal.find('.modal-body').text('请选择过户结果');
+                modal.modal('show');
+			}
+		})
+
+	})
+</script>

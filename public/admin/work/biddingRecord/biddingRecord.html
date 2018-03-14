@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>林润万车后台管理中心</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!--include('common.css')-->
+		<link rel="shortcut icon" type="images/favicon.ico" href="/admin/images/favicon.ico" media="screen">
+		<link rel="stylesheet" href="/admin/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="/admin/AdminLTE/dist/css/AdminLTE.min.css" />
+		<link rel="stylesheet" type="text/css" href="/admin/AdminLTE/dist/css/skins/skin-blue.min.css" />
+		
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+<style type="text/css">
+			.blur {
+				border: 1px solid red;
+			}
+			
+			input:disabled {
+				background-color: #fff;
+			}
+			
+			body {
+				min-width: 1600px;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+			<!--include('common/header')-->
+			<header class="main-header">
+				<a href="/admin/home.html" class="logo">
+					<span class="logo-mini"><b>A</b>LT</span>
+					<span class="logo-lg"><b>IFcar</b></span>
+				</a>
+
+				<nav class="navbar navbar-static-top" role="navigation">
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+						<span class="sr-only">Toggle navigation</span>
+					</a>
+					<!-- Navbar Right Menu -->
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<li class="dropdown messages-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 4 messages</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+													</div>
+													<h4>
+                                                    Support Team
+                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                </h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">See All Messages</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown notifications-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 10 notifications</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<i class="fa fa-users text-aqua"></i> 5 new members joined today
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">View all</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown tasks-menu">
+								<ul class="dropdown-menu">
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="/auth/changepassword">
+													<h3>
+                                                 修改密码
+                                             </h3>
+												</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="user-image avatar" alt="User Image">
+
+									<span class="hidden-xs usernameWrite"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<!-- The user image in the menu -->
+									<li class="user-header">
+										<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+
+										<p>
+											<span class="accountWrite"></span>
+											<small class="usernameWrite"></small>
+										</p>
+									</li>
+									<li class="user-footer">
+										<div class="pull-left">
+											<a href="/admin/auth/changepassword" class="btn btn-default btn-flat changepassword">reset</a>
+										</div>
+										<div class="pull-right">
+											<a href="#" class="btn btn-default btn-flat signout">Sign out</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!-- 鼠标移动 -->
+					<aside class="control-sidebar control-sidebar-dark">
+						<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+							<li class="active">
+								<a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a>
+							</li>
+							<li>
+								<a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="control-sidebar-home-tab">
+								<h3 class="control-sidebar-heading">Recent Activity</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+											<div class="menu-info">
+												<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+												<p>Will be 23 on April 24th</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+								<h3 class="control-sidebar-heading">Tasks Progress</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<h4 class="control-sidebar-subheading">
+                                        Custom Template Design
+                                        <span class="pull-right-container">
+                                          <span class="label label-danger pull-right">70%</span>
+                                      </span>
+                                  </h4>
+
+											<div class="progress progress-xxs">
+												<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+							</div>
+							<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+							<div class="tab-pane" id="control-sidebar-settings-tab">
+								<form method="post">
+									<h3 class="control-sidebar-heading">General Settings</h3>
+
+									<div class="form-group">
+										<label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+										<p>
+											Some information about this general settings option
+										</p>
+									</div>
+								</form>
+							</div>
+						</div>
+					</aside>
+					<div class="control-sidebar-bg"></div>
+				</nav>
+			</header>
+			<!--include('common/sidebar')-->
+			<aside class="main-sidebar">
+				<title>
+					<?php if(isset($title)) {echo $title;}?>
+				</title>
+				<section class="sidebar">
+					<div class="user-panel">
+						<div class="pull-left image">
+							<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+						</div>
+						<div class="pull-left info">
+							<p class="usernameWrite">
+
+							</p>
+							<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+						</div>
+					</div>
+					<form action="#" method="get" class="sidebar-form">
+						<div class="input-group">
+							<input type="text" name="q" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+						</div>
+					</form>
+					<ul class="sidebar-menu">
+						<li class="treeview active" cid="20">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>工作台</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu" cid="20">
+
+								<li methodid="280">
+									<a href="/admin/work/certification/certification.html">认证申请</a>
+								</li>
+								<li methodid="281">
+									<a href="/admin/work/financing/financing.html">融资申请</a>
+								</li>
+								<li methodid="282">
+									<a href="/admin/work/bidding/bidding.html">上标申请</a>
+								</li>
+								<li methodid="283">
+									<a href="/admin/work/repay/repay.html">客户待还款</a>
+								</li>
+								<li methodid="288">
+									<a href="/admin/work/transfer/transfer.html">客户待过户</a>
+								</li>
+								<li methodid="284">
+									<a href="/admin/work/certificationRecord/certificationRecord.html">认证申请记录</a>
+								</li>
+								<li methodid="285">
+									<a href="/admin/work/financingRecord/financingRecord.html">融资申请记录</a>
+								</li>
+								<li methodid="286" class="active">
+									<a href="/admin/work/biddingRecord/biddingRecord.html">上标申请记录</a>
+								</li>
+								<li methodid="293">
+									<a href="/admin/work/transferRecord/transferRecord.html">已过户记录</a>
+								</li>
+								<li methodid="294">
+									<a href="/admin/work/manage/manage.html">车商信息管理</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="treeview" cid="12">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>用户权限</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu " cid="12">
+
+								<li methodid="251">
+									<a href="/admin/role/adduser/adduser.html">添加用户</a>
+								</li>
+								<li methodid="252">
+									<a href="/admin/role/userrole/userrole.html">用户角色</a>
+								</li>
+								<li methodid="253">
+									<a href="/admin/role/roleset/roleset.html">角色设置</a>
+								</li>
+								<!--<li methodid="289">
+									<a href="/admin/role/version/version.html">APP版本控制</a>
+								</li>-->
+							</ul>
+						</li>
+					</ul>
+					<!-- /.sidebar-menu -->
+				</section>
+				<!-- /.sidebar -->
+			</aside>
+			<div class="content-wrapper">
+				<section class="content">
+<div class="content-wrappers">
+    <!-- Content Header (Page header) -->
+ <!--    <section class="content-header">
+        <h1>
+            征信报告
+            <small>home visit to sign</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/Admin"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="/Admin/work/inquire">征信报告</a></li>
+            <li class="active">征信报告列表</li>
+        </ol>
+    </section> -->
+</div><br/>
+<div class="container1">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+            <div class="box-body">
+                <div class="box-header">
+                    <button type="button" class="status btn btn-primary handle_button" value= "2">上标申请记录</button>
+                </div>
+                <div class="box-body">
+                    <div class="row margin-bottom">
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    客户姓名：
+                                </span>
+                                <input type="text" name="request_no" class="form-control search_name" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    店铺名称：
+                                </span>
+                                <input type="text" name="customer_name" class="form-control search_shop" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    车辆型号：
+                                </span>
+                                <input type="text" name="customer_car" class="form-control search_car" placeholder="">
+                                 <!--<span class="input-group-addon">天</span>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-bottom">
+                        <!-- <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    状态：
+                                </span>
+                                <select name="search[status]" class="form-control">
+                                    <option value="1">请选择</option>
+                                    <option value="2">未处理</option>
+                                    <option value="3">暂存</option>
+                                    <option value="4">补件</option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <div class="col-xs-7">
+                            <div class="input-group">
+
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <span class="input-group-addon">
+                                    申请时间：
+                                </span>
+                                <input type="text" class="form-control pull-right" id="reservationtime">
+                                
+                            </div>
+                        </div>
+                        <!--<div class="col-xs-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    融资利率：
+                                </span>
+                            	<input type="text" class="form-control pull-right" id="reservationper">
+                                <span class="input-group-addon">
+              %
+                                </span>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="row margin-bottom">
+                    	<div class="col-xs-1">
+                        	<span class="input-group-btn">
+                                <button type="button" id="search" class="btn btn-info btn-flat">查询</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                    <table id="example1" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <!-- <th>商户编号</th> -->
+                                <th>编号</th>
+                                <th>客户姓名</th>
+                                <th>融资单号</th>
+                                <th>手机号码</th>
+                                <th>车辆型号</th>
+                                <th>车辆类型</th>
+                                <th>融资金额</th>
+                                <th>融资利率</th>
+                                <th>店铺名称</th>
+                                <th>所在地区</th>
+                                <th>提交时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default modal_close" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+		</section>
+	</div>
+<footer class="main-footer">
+	<div class="pull-right hidden-xs">
+		Anything you want
+	</div>
+	<strong>Copyright &copy; 2017 <a href="#">ifcar</a>.</strong> All rights reserved.
+</footer>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="/admin/js/develop/jquery-3.1.1.min.js"></script>
+<script src="/admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/dist/js/app.min.js"></script> 
+<script type="text/javascript" src="/admin/js/develop/common.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/plugins/moment/moment.min.js"></script>
+<script src="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript">
+    var token = USER.get_token();
+    var start_time ='';
+    var end_time ='';
+    $('#reservationtime').on('apply.daterangepicker',function(ev, picker) {
+         start_time =  Date.parse(picker.startDate) / 1000;
+         end_time = Date.parse(picker.endDate) / 1000;;
+    }); 
+    $('#reservationtime').on('outside.daterangepicker',function(ev, picker) {
+         start_time =  Date.parse(picker.startDate) / 1000;
+         end_time = Date.parse(picker.endDate) / 1000;;
+    });
+    Fillproductname('product_name');          //填充产品选项
+    var task_deal = function (id) {
+        window.location.href = '/admin/work/biddingRecord/detailbiddingRecord.html?id=' + id;
+    }
+    $(function () {
+        var oStartDate = new Date();var oEndDate = new Date();oStartDate.setDate(oStartDate.getDate() - 7);oStartDate.setHours(0,0,0);oEndDate.setHours(23,59,59);$('#reservationtime').daterangepicker({showDropdowns:true,timePicker24Hour:true,startDate:oStartDate,endDate:oEndDate,timePicker: true, timePickerIncrement: 1, format: 'MM/DD/YYYY h:mm A'});
+        start_time =  Date.parse(oStartDate) / 1000;
+    	end_time = Date.parse(oEndDate) / 1000;
+        $('.status').click(function () {   //点击效果
+            $('.status').removeClass("btn-primary");
+            $('.status').removeClass("btn_status");
+            $('.status').addClass("btn-default");
+            $(this).removeClass("btn-default");
+            $(this).addClass("btn-primary");
+            $(this).addClass("btn_status");
+            var status = $(this).val();
+            $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                //重写ajax 分页参数
+                json.page = Math.floor(json.start / json.length) + 1;
+                json.size = json.length || 10;
+                //搜索条件
+                json.type = status;
+            });
+            table.ajax.reload();
+        });
+        $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+            //重写ajax 分页参数
+            json.page = Math.floor(json.start / json.length) + 1;
+            json.size = json.length || 10;
+            json.sort = '3';
+        });
+        $('input[name="search[keyword]"]').keyup(function (e) {
+            if (e.which == 13) {
+                $('#search').click();
+            }
+        });
+        $('#search').click(function () {
+            $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                //重写ajax 分页参数
+                json.page = Math.floor(json.start / json.length) + 1;
+                json.size = json.length || 10;
+                //搜索条件
+//              json.deadline = $('.search_deadline').val();
+                json.name = $('.search_name').val();
+                json.shopname = $('.search_shop').val();
+                json.car_type = $('.search_car').val();
+//              json.rate = $('.search_per').val();
+                json.start_time= start_time;
+                json.end_time= end_time;
+            });
+            table.ajax.reload();
+        });
+
+        var table = $("#example1").DataTable({
+            "processing": true,
+            "serverSide": true,
+            "paginate": true,
+            'searching': false,
+            'bAutoWidth': true,
+            "fnDrawCallback": function(){ //每次填充一行时，先获取这一行的第一列，赋值为序号。
+    			this.api().column(0).nodes().each(function(cell, i) {
+         　　				cell.innerHTML =  i + 1;
+    			});
+	        },
+            "oLanguage": DataTable_language,
+            "ajax": {
+                'url': apiurl + "Jcr/jcd/listsbillrecord/",
+                'data': {
+                    'token': token,
+                },
+                'dataSrc': function (r) {
+                    if (r.error_no !== 200) {
+                        error_skip(r);
+                    } else {
+                        //重写ajax 返回的总数等参数
+                        r.recordsTotal = r.result.total.count;
+                        r.recordsFiltered = r.result.total.count;
+                        return r.result.rows;
+                    }
+                },
+            },
+            "columns": [
+                // {
+                //     "orderable": false,
+                //     "data": function (row) {
+                //         return row.merchant_no;
+                //     }
+                // },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.id;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.name;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.csr_no;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.loginname;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.car_model;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return (row.car_type == 1 ? '新车':'二手车');
+                    },
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return floatFun.multi(row.money , 10000) + '元';
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.rate + '%';
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.shopname;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.area;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return time_to_str_ymd(row.create_time);
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return '<button type="button" class="btn btn-default" onclick="task_deal(' + row.id + ');">查看</button>';
+                    }
+                },
+            ],
+//                    "order": [[1, 'asc']]
+        });
+
+    })
+</script>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>林润万车后台管理中心</title>
+		<link rel="stylesheet" href="/admin/css/login.css">
+		<link rel="shortcut icon" type="images/favicon.ico" href="/admin/images/favicon.ico" media="screen">
+	</head>
+
+	<body>
+		<div class="login-title">
+			<img src="/admin/images/login-logo.png" />
+			<span class="titleSpan">林润万车后台管理中心</span>
+		</div>
+		<div class="login-bg">
+			<div class="login-bar">
+				<div class="login-bar-title">登录</div>
+				<input type="text" name="loginUN" id="username" maxlength="11" pattern="[0-9]*" value="" placeholder="请输入手机号" />
+				<input type="password" name="loginPW" id="password" value="" placeholder="请输入密码" />
+				<div class="login-bar-opt">
+					<span class="remember"><input type="checkbox" name="" id="remember" /><span class="rememberSpan" style="cursor: pointer;">记住密码</span></span>
+					<span class="forget"><a href="###">忘记登录密码？</a></span>
+				</div>
+				<div id="loginBtn">登录</div>
+			</div>
+		</div>
+		<div class="login-footer">
+			<p class="footer-tab">
+				<span><a href="http://www.zjhbjt.cn/introduction/21.html">关于我们</a></span><!--<span><a href="###">诚聘英才</a></span><span><a href="###">安全保障</a></span>--><span><a href="http://www.zjhbjt.cn/contactus.html">联系我们</a></span>
+			</p>
+			<p class="copyright">Copyright 2014 浙江杭标集团 All Rights Reserved
+Zhejiang Hangzhou</p>
+		</div>
+	</body>
+	<script type="text/javascript" src="/admin/js/develop/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/admin/js/develop/common.js"></script>
+	<script src="/admin/AdminLTE/plugins/md5/jquery.md5.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			if(getCookie('loginUN') != null && getCookie('loginPW') != null) {
+				$('#username').val(getCookie('loginUN'));
+				$('#password').val(getCookie('loginPW'));
+			}
+
+			function getCookie(name) {
+				var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+				if(arr = document.cookie.match(reg))
+					return unescape(arr[2]);
+				else
+					return null;
+			}
+			function setCookie(name, value, days) { //设置cookie
+    			var d = new Date();
+    			d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    			var expires = "expires=" + d.toUTCString();
+    			document.cookie = name + "=" + value + "; " + expires;
+    		}
+			$('.forget').click(function() {
+				alert('请联系管理员！');
+			});
+			$('.rememberSpan').click(function(){
+				$('#remember').click();
+			})
+			$(document).keyup(function(e) {
+				if(e.which == 13) {
+					$('.submitlogin').click();
+				}
+			});
+			document.addEventListener('keydown',function(e){
+				var ev = e || window.event;
+				var keyCode = ev.keyCode || ev.which;
+				if(keyCode == 13){
+					$('#loginBtn').click()
+				}
+			})
+			$('#loginBtn').click(function() {
+				var account = $('#username').val();
+				var password = $('#password').val();
+				var loginData = {
+					'account': account,
+					'password': $.md5(password)
+				};
+				$.ajax({
+					type: 'post',
+					url: apiurl + 'auth/login',
+					dataType: 'json',
+					data: loginData,
+					success: function(data) {
+						if(data.error_no !== 200) {
+							alert(data.error_msg);
+						} else {
+							if($("#remember").prop('checked')) {
+								setCookie('loginUN',account,7);
+								setCookie('loginPW',password,7);
+							}
+							USER.set_token(data.result.token);
+							USER.set_info(data.result.user);
+							ROLE.load_module({
+								token: USER.get_token(),
+								callback: function(r) {
+									if(r.error_no == 200) {
+										ROLE.set_module(r.result.rows);
+										ROLE.load_method({
+											token: USER.get_token(),
+											callback: function(r) {
+												if(r.error_no == 200) {
+													ROLE.set_method(r.result.rows);
+													ROLE.sidebar({
+														token: USER.get_token(),
+														callback: function(rr) {
+															if(rr.error_no == 200) {
+																ROLE.set_sidebar(JSON.stringify(rr.result))
+//																console.log(JSON.stringify(rr.result))
+																window.location.href = '/admin/home.html';
+															} else {
+
+															}
+														}
+													})
+												} else {
+													var modal = $('#myModal');
+													modal.find('.modal-body').text(r.error_msg);
+													modal.modal('show');
+												}
+											}
+										});
+									} else {
+										var modal = $('#myModal');
+										modal.find('.modal-body').text(r.error_msg);
+										modal.modal('show');
+									}
+								}
+							});
+
+						}
+					}
+				})
+			});
+		})
+	</script>
+
+</html>

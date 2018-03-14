@@ -1,0 +1,343 @@
+@@include('../../../source/header.html')
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+@@include('../../../source/contentTop13.html')
+<div class="content-wrappers">
+    <!-- Content Header (Page header) -->
+ <!--    <section class="content-header">
+        <h1>
+            征信报告
+            <small>home visit to sign</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/Admin"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="/Admin/work/inquire">征信报告</a></li>
+            <li class="active">征信报告列表</li>
+        </ol>
+    </section> -->
+</div><br/>
+<div class="container1">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+            <div class="box-body">
+                <div class="box-header">
+                    <button type="button" class="status btn btn-primary wait_handle_button" value= "2">已过户列表</button> 
+                </div>
+                <div class="box-body">
+                    <div class="row margin-bottom">
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    客户姓名：
+                                </span>
+                                <input type="text" name="customer_name" class="form-control customer_name" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    店铺名称：
+                                </span>
+                                <input type="text" name="customer_shopname" class="form-control customer_shopname" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    还款类别：
+                                </span>
+                                <select name="overtype" class="form-control overtype">
+                                    <option value="">全部</option>
+                                    <option value="1">提前还款</option>
+                                    <option value="2">到期还款</option>
+                                    <option value="3">逾期还款</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-bottom">
+                        <div class="col-xs-7">
+                            <div class="input-group">
+
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <span class="input-group-addon">
+                                    实际还款日：
+                                </span>
+                                <input type="text" class="form-control pull-right" id="reservationtime">
+                            </div>
+                        </div>
+                        <!--<div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    剩余到期天数：
+                                </span>
+                                <input type="text" name="request_no" class="form-control request_no" placeholder="">
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="row margin-bottom">
+                    	<div class="col-xs-3">
+                    		<span class="input-group-btn">
+                                <button type="button" id="search" class="btn btn-info btn-flat">查询</button>
+                            </span>
+                    	</div>
+                        <!--<div class="col-xs-7">
+                            <div class="input-group">
+
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <span class="input-group-addon">
+                                    申请时间：
+                                </span>
+                                <input type="text" class="form-control pull-right" id="reservationtime">
+                                <span class="input-group-btn">
+                                    <button type="button" id="search" class="btn btn-info btn-flat">查询</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    剩余到期天数：
+                                </span>
+                                <input type="text" name="request_no" class="form-control request_no" placeholder="">
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                    <table id="example1" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <!-- <th>商户编号</th> -->
+                                <th>编号</th>
+                                <th>客户姓名</th>
+                                <th>融资单号</th>
+                                <th>手机号码</th>
+                                <th>店铺名称</th>
+                                <th>车辆型号</th>
+                                <th>已还款额</th>
+                                <th>最后还款日</th>
+                                <th>实际还款日</th>
+                                <th>还款类别</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@@include('../../../common/common.html')
+<script src="/admin/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/plugins/moment/moment.min.js"></script>
+<script src="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript">
+    var token = USER.get_token();
+    var start_time ='';
+    var end_time ='';
+    $('#reservationtime').on('apply.daterangepicker',function(ev, picker) {
+         start_time =  Date.parse(picker.startDate) / 1000;
+         end_time = Date.parse(picker.endDate) / 1000;;
+    }); 
+    $('#reservationtime').on('outside.daterangepicker',function(ev, picker) {
+         start_time =  Date.parse(picker.startDate) / 1000;
+         end_time = Date.parse(picker.endDate) / 1000;;
+    });
+    Fillproductname('product_name');          //填充产品选项
+    var task_deal = function (id, billid ,money1,money2, repay_type, repay_time, overtime, car_brand, bill_no, car_type) {
+        window.location.href = '/admin/work/transferRecord/detailtransferRecord.html?id=' + id + '&billid=' + billid + '&money=' + money1 + '&money2=' + money2 + '&repaytype=' + repay_type + '&repaytime=' + repay_time + '&overtime=' + overtime + '&carbrand=' + car_brand + '&billno=' + bill_no + '&cartype=' + car_type;
+    }
+    $(function () {
+        var oStartDate = new Date();var oEndDate = new Date();oStartDate.setDate(oStartDate.getDate() - 7);oStartDate.setHours(0,0,0);oEndDate.setHours(23,59,59);$('#reservationtime').daterangepicker({showDropdowns:true,timePicker24Hour:true,startDate:oStartDate,endDate:oEndDate,timePicker: true, timePickerIncrement: 1, format: 'MM/DD/YYYY h:mm A'});
+        start_time =  Date.parse(oStartDate) / 1000;
+    	end_time = Date.parse(oEndDate) / 1000;
+        $('.status').click(function () {   //点击效果
+            $('.status').removeClass("btn-primary");
+            $('.status').removeClass("btn_status");
+            $('.status').addClass("btn-default");
+            $(this).removeClass("btn-default");
+            $(this).addClass("btn-primary");
+            $(this).addClass("btn_status");
+            var status = $(this).val();
+            $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                //重写ajax 分页参数
+                json.page = Math.floor(json.start / json.length) + 1;
+                json.size = json.length || 10;
+                //搜索条件
+                json.type = status;
+            });
+            table.ajax.reload();
+        });
+        $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+            //重写ajax 分页参数
+            json.page = Math.floor(json.start / json.length) + 1;
+            json.size = json.length || 10;
+            json.sort = '3';
+        });
+        $('input[name="search[keyword]"]').keyup(function (e) {
+            if (e.which == 13) {
+                $('#search').click();
+            }
+        });
+        $('#search').click(function () {
+            $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                //重写ajax 分页参数
+                json.page = Math.floor(json.start / json.length) + 1;
+                json.size = json.length || 10;
+//              //搜索条件
+                json.repay_type = $('.overtype').val();
+//              json.request_no = $('.request_no').val();
+                json.name = $('.customer_name').val();
+                json.shopname = $('.customer_shopname').val();
+//              json.product_name = $('.product_name').find("option:selected").val();
+                json.start_time= start_time;
+                json.end_time= end_time;
+            });
+            table.ajax.reload();
+        });
+
+        var table = $("#example1").DataTable({
+            "processing": true,
+            "serverSide": true,
+            "paginate": true,
+            'searching': false,
+            'bAutoWidth': true,
+            "fnDrawCallback": function(){ //每次填充一行时，先获取这一行的第一列，赋值为序号。
+    			this.api().column(0).nodes().each(function(cell, i) {
+         　　				cell.innerHTML =  i + 1;
+    			});
+	        },
+            "oLanguage": DataTable_language,
+            "ajax": {
+                'url': apiurl + "Jcr/jcd/transferlist",
+                'data': {
+                    'token': token,
+                    'has_transfer': '1',
+//                  'role_id': 80,
+//                  'type': 2
+                },
+                'dataSrc': function (r) {
+//              	console.log(JSON.stringify(r))
+                    if (r.error_no !== 200) {
+                        error_skip(r);
+                    } else {
+                        //重写ajax 返回的总数等参数
+                        r.recordsTotal = r.result.total.count;
+                        r.recordsFiltered = r.result.total.count;
+                        return r.result.rows;
+                    }
+                },
+            },
+            "columns": [
+                // {
+                //     "orderable": false,
+                //     "data": function (row) {
+                //         return row.merchant_no;
+                //     }
+                // },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.id;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.name;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.borrow_title;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.loginname;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.shopname;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.carbrand;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return (row.repay_account_yes + '元');
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return time_to_str_ymd(row.repay_time);
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                    	return time_to_str_ymd(row.repay_end_time);
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+//                  	var nowT = new Date();
+//                  	var nowTime = Date.parse(nowT)/1000;
+//                  	var overtime = (row.repay_time - row.repay_last_time)/(3600*24);
+//                  	var timeRes;
+//                  	if(overtime >= 1){
+//                  		timeRes = '提前还款';
+//                  	} else if (overtime < 1 && overtime >= 0){
+//                  		timeRes = '到期还款';
+//                  	} else if (overtime < 0){
+//                  		timeRes = '逾期还款';
+//                  	}
+                    	if(row.repay_type == 1){
+                    		return '提前还款';
+                    	} else if(row.repay_type == 2){
+                    		return '到期还款';
+                    	} else if(row.repay_type == 3){
+                    		return '逾期还款';
+                    	}
+//                      return timeRes;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return '已过户';
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+//                  	var nowTime = row.repay_end_time;
+//                  	var overtime = (row.repay_time - nowTime)/(3600*24);
+                        return '<button type="button" class="btn btn-default" onclick="task_deal(' + row.csr_id + ',' + row.bill_id + ',' + row.repay_account_yes + ',' + row.total_finance + ',' + row.repay_type + ',' + row.repay_time + ',' + row.repay_end_time + ',\'' + encodeURI(encodeURI(row.carbrand)) + '\',\'' + encodeURI(encodeURI(row.borrow_title))  + '\',' + row.cartype + ')">查看</button>';
+                    }
+                },
+            ],
+//                    "order": [[1, 'asc']]
+        });
+
+    })
+</script>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script id="tpl-1" type="text/html">
+		{{each category as item i}}
+		<li class="treeview" cid={{item.id}}>
+			<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>{{item.menu_title}}</span>
+				<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+			</a>
+			<ul class="treeview-menu " cid={{item.id}}>
+
+			</ul>
+		</li>
+		{{/each}}
+	</script>
+	<script type="text/javascript">
+		var sidebarresult = {
+			"category": [{
+					"id": "5",
+					"desc": "",
+					"is_menu": "1",
+					"menu_title": "\u5de5\u4f5c\u53f0",
+					"sort": "5",
+					"icon": "fa fa-fw fa-calendar-check-o",
+					"status": "1"
+				},
+				{
+					"id": "7",
+					"desc": "",
+					"is_menu": "1",
+					"menu_title": "\u7533\u8bf7\u4ef6\u67e5\u8be2",
+					"sort": "7",
+					"icon": "fa fa-fw fa-calendar-plus-o",
+					"status": "1"
+				},
+				{
+					"id": "19",
+					"desc": "",
+					"is_menu": "1",
+					"menu_title": "\u5de5\u884c\u6570\u636e\u67e5\u8be2",
+					"sort": "8",
+					"icon": "fa fa-fw fa-cc-jcb",
+					"status": "1"
+				},
+				{
+					"id": "9",
+					"desc": "",
+					"is_menu": "1",
+					"menu_title": "\u7cfb\u7edf\u7ba1\u7406",
+					"sort": "9",
+					"icon": "fa fa-fw fa-cc-jcb",
+					"status": "1"
+				},
+				{
+					"id": "12",
+					"desc": "",
+					"is_menu": "1",
+					"menu_title": "\u7528\u6237\u6743\u9650",
+					"sort": "12",
+					"icon": "fa fa-user",
+					"status": "1"
+				}
+			],
+			"method": [{
+					"method_id": "246",
+					"method_name_cn": "\u635e\u4ef6\u7ba1\u7406",
+					"description": "",
+					"cid": "6",
+					"status": "1",
+					"create_time": "1476410054",
+					"modify_time": "0",
+					"sort": "0",
+					"path": "\/work\/taskbackmanage",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/taskbackmanage"
+				},
+				{
+					"method_id": "247",
+					"method_name_cn": "\u6848\u4ef6\u8ba4\u9886\u7ba1\u7406",
+					"description": "",
+					"cid": "6",
+					"status": "1",
+					"create_time": "1476411018",
+					"modify_time": "1476413969",
+					"sort": "0",
+					"path": "\/work\/taskget",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/taskget"
+				},
+				{
+					"method_id": "250",
+					"method_name_cn": "\u7533\u8bf7\u4ef6\u67e5\u8be2\uff08\u7ba1\u7406\u5458\uff09",
+					"description": "",
+					"cid": "7",
+					"status": "1",
+					"create_time": "1476783623",
+					"modify_time": "0",
+					"sort": "0",
+					"path": "\/work\/taskquery",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/taskquery"
+				},
+				{
+					"method_id": "251",
+					"method_name_cn": "\u6dfb\u52a0\u7528\u6237",
+					"description": "",
+					"cid": "12",
+					"status": "1",
+					"create_time": "1481091891",
+					"modify_time": "0",
+					"sort": "0",
+					"path": "\/role\/adduser",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/role\/adduser"
+				},
+				{
+					"method_id": "252",
+					"method_name_cn": "\u7528\u6237\u89d2\u8272",
+					"description": "",
+					"cid": "12",
+					"status": "1",
+					"create_time": "1481614776",
+					"modify_time": "1481621024",
+					"sort": "0",
+					"path": "\/role\/index",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/role\/index"
+				},
+				{
+					"method_id": "253",
+					"method_name_cn": "\u89d2\u8272\u8bbe\u7f6e",
+					"description": "",
+					"cid": "12",
+					"status": "1",
+					"create_time": "1481614796",
+					"modify_time": "1481621010",
+					"sort": "0",
+					"path": "\/role\/roleset",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/role\/roleset"
+				},
+				{
+					"method_id": "255",
+					"method_name_cn": "\u4eba\u5de5\u5ba1\u6838\u914d\u7f6e",
+					"description": null,
+					"cid": "9",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "0",
+					"path": "\/system\/manaudit",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/system\/manaudit"
+				},
+				{
+					"method_id": "256",
+					"method_name_cn": "\u64cd\u4f5c\u65e5\u5fd7",
+					"description": null,
+					"cid": "9",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "0",
+					"path": "\/system\/actionlog",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/system\/actionlog"
+				},
+				{
+					"method_id": "257",
+					"method_name_cn": "\u767b\u5f55\u65e5\u5fd7",
+					"description": null,
+					"cid": "9",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "0",
+					"path": "\/system\/loginlog",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/system\/loginlog"
+				},
+				{
+					"method_id": "278",
+					"method_name_cn": "\u5de5\u884c\u6570\u636e\u67e5\u8be2",
+					"description": null,
+					"cid": "19",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "0",
+					"path": "\/system\/bankdataquery",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/system\/bankdataquery"
+				},
+				{
+					"method_id": "236",
+					"method_name_cn": "\u4eba\u884c\u5f81\u4fe1\u7533\u8bf7",
+					"description": "",
+					"cid": "5",
+					"status": "1",
+					"create_time": "1474877994",
+					"modify_time": "1474966168",
+					"sort": "1",
+					"path": "\/work\/creditrequest",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/creditrequest"
+				},
+				{
+					"method_id": "237",
+					"method_name_cn": "\u5f81\u4fe1\u62a5\u544a",
+					"description": "",
+					"cid": "5",
+					"status": "1",
+					"create_time": "1474878079",
+					"modify_time": "1474966175",
+					"sort": "2",
+					"path": "\/work\/inquire",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/inquire"
+				},
+				{
+					"method_id": "273",
+					"method_name_cn": "\u7533\u8bf7\u4ef6\u67e5\u8be2",
+					"description": null,
+					"cid": "5",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "3",
+					"path": "\/work\/taskqueryself",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/taskqueryself"
+				},
+				{
+					"method_id": "238",
+					"method_name_cn": "\u4eba\u5de5\u5ba1\u6279\uff08\u4e00\u5ba1\uff09",
+					"description": "",
+					"cid": "5",
+					"status": "1",
+					"create_time": "1476165021",
+					"modify_time": "1476165049",
+					"sort": "4",
+					"path": "\/work\/artificialone",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/artificialone"
+				},
+				{
+					"method_id": "259",
+					"method_name_cn": "\u4eba\u5de5\u5ba1\u6279\uff08\u4e8c\u5ba1\uff09",
+					"description": null,
+					"cid": "5",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "5",
+					"path": "\/work\/artificialtwo",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/artificialtwo"
+				},
+				{
+					"method_id": "274",
+					"method_name_cn": "\u9500\u552e\u8865\u4ef6",
+					"description": null,
+					"cid": "5",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "5",
+					"path": "\/work\/salessupplement",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/salessupplement"
+				},
+				{
+					"method_id": "277",
+					"method_name_cn": "\u7533\u8bf7\u6253\u6b3e",
+					"description": null,
+					"cid": "5",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "6",
+					"sort": "6",
+					"path": "\/work\/applyremittance",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/applyremittance"
+				},
+				{
+					"method_id": "240",
+					"method_name_cn": "\u8d22\u52a1\u6253\u6b3e",
+					"description": "",
+					"cid": "5",
+					"status": "1",
+					"create_time": "1476252856",
+					"modify_time": "1476256811",
+					"sort": "7",
+					"path": "\/work\/finance",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/finance"
+				},
+				{
+					"method_id": "241",
+					"method_name_cn": "\u56de\u6b3e\u786e\u8ba4",
+					"description": "",
+					"cid": "5",
+					"status": "1",
+					"create_time": "1476252957",
+					"modify_time": "1476253452",
+					"sort": "8",
+					"path": "\/work\/returnmoney",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/returnmoney"
+				},
+				{
+					"method_id": "242",
+					"method_name_cn": "\u7533\u8bf7\u5f55\u5165",
+					"description": "",
+					"cid": "5",
+					"status": "1",
+					"create_time": "1476253045",
+					"modify_time": "1476256800",
+					"sort": "9",
+					"path": "\/work\/inputrequest",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/inputrequest"
+				},
+				{
+					"method_id": "244",
+					"method_name_cn": "\u5bc4\u4ef6\u767b\u8bb0",
+					"description": null,
+					"cid": "5",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "11",
+					"path": "\/work\/sendtask",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/sendtask"
+				},
+				{
+					"method_id": "245",
+					"method_name_cn": "\u6284\u5355\u767b\u8bb0",
+					"description": null,
+					"cid": "5",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "12",
+					"path": "\/work\/copytask",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/copytask"
+				},
+				{
+					"method_id": "248",
+					"method_name_cn": "\u8f66\u8f86GPS\u767b\u8bb0",
+					"description": null,
+					"cid": "5",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "13",
+					"path": "\/work\/gps",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/gps"
+				},
+				{
+					"method_id": "249",
+					"method_name_cn": "\u62b5\u62bc\u767b\u8bb0",
+					"description": null,
+					"cid": "5",
+					"status": "1",
+					"create_time": "0",
+					"modify_time": "0",
+					"sort": "14",
+					"path": "\/work\/mortgage",
+					"is_bar": "1",
+					"url": "http:\/\/anjie.ifcar99.com\/Admin\/work\/mortgage"
+				}
+			]
+		}
+		var html = template('tpl-1', sidebarresult);
+		$(".sidebar-menu").html(html);
+		var sidebarmethod = sidebarresult.method;
+		for(var i = 0; i < sidebarmethod.length; i++) {
+			$(".treeview-menu[cid=" + sidebarmethod[i].cid + "]").append("<li methodId=" + sidebarmethod[i].method_id + "><a href='http://anjie.ifcar99.com/Admin" + sidebarmethod[i].url + "'>" + sidebarmethod[i].method_name_cn + "</a></li>")
+		}
+	</script>
+</html>

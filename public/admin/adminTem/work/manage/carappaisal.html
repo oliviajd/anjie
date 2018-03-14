@@ -1,0 +1,134 @@
+@@include('../../../source/header.html')
+<style type="text/css">
+	.wrap-title{
+		position: relative;
+		width: 100%;
+		height: 100px;
+	}
+	
+	.wrap-title-img{
+		width: 60px;
+		height: 60px;
+		position: absolute;
+	}
+	
+	.wrap-title-div{
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		padding-left: 80px;
+	}
+	
+	.wrap-title-title{
+		font-size: 20px;
+	}
+	
+	.wrap-title-ul{
+		list-style: none;
+		padding: 0;
+	}
+	
+	.wrap-title-li{
+		display: inline-block;
+		border-right: 1px solid #999999;
+		padding: 0 5px;
+		text-align: center;
+	}
+	
+	
+	.wrap-body{
+		width: 100%;
+		border: 1px solid#999999;
+	}
+	
+	.conditionTabs{
+		width: 60%;
+		max-width: 600px;
+		height: 40px;
+		margin: 30px auto 0 auto;
+		overflow: hidden;
+	}
+	
+	.conditionTab{
+		width: 33.333%;
+		height: 100%;
+		line-height: 40px;
+		display: inline-block;
+		border: 1px solid #999999;
+		border-left: none;
+		text-align: center;
+		box-sizing: border-box;
+		float: left;
+	}
+	
+	.conditionTab:first-of-type{
+		border-left: 1px solid #999999;
+	}
+	
+	.conditionTab.active{
+		background-color: orange;
+		color: #ffffff;
+	}
+	
+</style>
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+@@include('../../../source/contentTop14.html')
+<div class="content-wrappers">
+    <!-- Content Header (Page header) -->
+ <!--    <section class="content-header">
+        <h1>
+            征信报告
+            <small>home visit to sign</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/Admin"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="/Admin/work/inquire">征信报告</a></li>
+            <li class="active">征信报告列表</li>
+        </ol>
+    </section> -->
+</div><br/>
+<div class="container1">
+    <div class="wrap-title">
+    	<img src="../../../AdminLTE/dist/img/avatar04.png" class="wrap-title-img"/>
+    	<div class="wrap-title-div">
+    		<span class="wrap-title-title">2017款 奥迪A6L 45 TFSI quattro 运动型</span>
+    		<ul class="wrap-title-ul">
+    			<li class="wrap-title-li">杭州</li>
+    			<li class="wrap-title-li">2017年2月上牌</li>
+    			<li class="wrap-title-li">1万公里</li>
+    			<li class="wrap-title-li">自动</li>
+    			<li class="wrap-title-li">排量3.0L</li>
+    			<li class="wrap-title-li">国5</li>
+    			<li class="wrap-title-li">新车售价53.05万</li>
+    			<li class="wrap-title-li">更多参数>></li>
+    		</ul>
+    	</div>
+    </div>
+    <div class="wrap-body">
+    	<div class="conditionTabs">
+    		<div class="conditionTab">车况优秀</div>
+    		<div class="conditionTab active">车况良好</div>
+    		<div class="conditionTab">车况一般</div>
+    	</div>
+    </div>
+</div>
+
+@@include('../../../common/common.html')
+<script src="/admin/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/plugins/moment/moment.min.js"></script>
+<script src="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript">
+    var token = USER.get_token();
+    var start_time ='';
+    var end_time ='';
+    var task_deal = function (id, billid ,money1,money2, repay_type, repay_time, overtime, car_brand, bill_no, car_type) {
+        window.location.href = '/admin/work/manage/detailmanage.html?id=' + id + '&billid=' + billid + '&money=' + money1 + '&money2=' + money2 + '&repaytype=' + repay_type + '&repaytime=' + repay_time + '&overtime=' + overtime + '&carbrand=' + car_brand + '&billno=' + bill_no + '&cartype=' + car_type;
+    }
+    $(function () {
+        
+
+        
+
+    })
+</script>

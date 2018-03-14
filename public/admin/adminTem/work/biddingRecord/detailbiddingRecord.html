@@ -1,0 +1,482 @@
+@@include('../../../source/header.html')
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/imgviewer/viewer.min.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload_ec8bd4e.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload-ui_8be8b42.css">
+<noscript><link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload-noscript_77b97d2.css"></noscript>
+<noscript><link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload-ui-noscript_f95c011.css"></noscript>
+<link rel="stylesheet" href="/admin/css/zoom.css">
+<link rel="stylesheet" href="/admin/css/viewer.css">
+<style type="text/css">
+	.box .col-md-3,.box .col-md-6{
+		margin-bottom: 20px !important;
+	}
+	.panel-body .col-md-3,.panel-body .col-md-6{
+		margin-bottom: 20px !important;
+	}
+	li{
+		list-style: none;
+	}
+</style>
+@@include('../../../source/contentTop8.html')
+<div class="content-wrappers">
+</div>
+<div class="container1">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">上标详情</h3>
+				</div>
+				<div class="box-body">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+                            车商基本信息
+                        </h3>
+					</div>
+					<div class="panel-body">
+						<div class="row margin-bottom">
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">客户姓名</span>
+									<input type="text" class="form-control customer_name" placeholder="" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">性别</span>
+									<input type="text" class="form-control customer_sex" placeholder="" disabled="disabled">
+								</div>
+							</div>
+						
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">身份证号</span>
+									<input type="text" class="form-control customer_certificate_number" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">年龄</span>
+									<input type="text" class="form-control customer_age" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+						
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">手机号</span>
+									<input type="text" class="form-control customer_telephone" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">认证类型</span>
+									<input type="text" class="form-control merchant_name" value="个人认证" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-3 typeSel" style="display: none;">
+								<div class="input-group">
+									<span class="input-group-addon">营业执照号</span>
+									<input type="text" class="form-control customer_licence" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-3 typeSel" style="display: none;">
+								<div class="input-group">
+									<span class="input-group-addon">公司名称</span>
+									<input type="text" class="form-control customer_company_name" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">店铺名称</span>
+									<input type="text" class="form-control customer_shopname1" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">所在地区</span>
+									<input type="text" class="form-control customer_city" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">详细地址</span>
+									<input type="text" class="form-control customer_address" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">成立时间</span>
+									<input type="text" class="form-control customer_createtime" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">主营业务</span>
+									<input type="text" class="form-control customer_primary" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<!--<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">融资金额</span>
+									<input type="text" class="form-control customer_money" placeholder="" maxlength="18" disabled="disabled">
+									<span class="input-group-addon">元</span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">融资期限</span>
+									<input type="text" class="form-control customer_deadline" placeholder="" maxlength="18" disabled="disabled">
+									<span class="input-group-addon">天</span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">库存车辆</span>
+									<input type="text" class="form-control customer_car" placeholder="" maxlength="18" disabled="disabled">
+									<span class="input-group-addon">辆</span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">融资利率</span>
+									<input type="text" class="form-control customer_per" placeholder="" maxlength="18" disabled="disabled">
+									<span class="input-group-addon">%</span>
+								</div>
+							</div>-->
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">信用评分</span>
+									<select id="" class="form-control score1" disabled="disabled">
+										<option value="">无</option>
+										<option value="0">0星</option>
+										<option value="1">0.5星</option>
+										<option value="2">1星</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">经营评分</span>
+									<select id="" class="form-control score2" disabled="disabled">
+										<option value="">无</option>
+										<option value="0">0星</option>
+										<option value="1">0.5星</option>
+										<option value="2">1星</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">资产评分</span>
+									<select id="" class="form-control score3" disabled="disabled">
+										<option value="">无</option>
+										<option value="0">0星</option>
+										<option value="1">0.5星</option>
+										<option value="2">1星</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">负债评分</span>
+									<select id="" class="form-control score4" disabled="disabled">
+										<option value="">无</option>
+										<option value="0">0星</option>
+										<option value="1">0.5星</option>
+										<option value="2">1星</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<span class="input-group-addon">增信评分</span>
+									<select id="" class="form-control score5" disabled="disabled">
+										<option value="">无</option>
+										<option value="0">0星</option>
+										<option value="1">0.5星</option>
+										<option value="2">1星</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+                           		标的信息
+                        	</h3>
+						</div>
+						<div class="panel-body">
+							<table class="table table-bordered table-hover">
+                        <thead>
+                            <tr role="row" class="odd">
+                                <th>融资单号</th>
+                                <th>车辆型号</th>
+                                <th>车辆类型</th>
+                                <th>融资金额</th>
+                                <th>融资利率</th>
+                                <th>融资期限</th>
+                                <th>车辆资料</th>
+                                <th>融资进度</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        	<tr role="row" class="odd carInfo">
+                        	</tr>
+                        </tbody>
+
+                    </table>
+						</div>
+					</div>
+					
+					<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+                            过户信息
+                        </h3>
+					</div>
+					<div class="panel-body">
+						
+						<div class="row margin-bottom">
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">过户结果</span>
+									<select id="" class="form-control merchant_res" disabled="disabled">
+										<option value="">请选择</option>
+										<option value="1">已过户</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="box-body">
+						
+						
+						
+						
+					</div>
+					
+					
+					
+
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" class="btn btn-default modal_close" data-dismiss="modal">Close</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@@include('../../../source/contentBottom.html')
+<script type="text/javascript" src="/admin/js/jquery-3.2.1.min.js"></script>
+	<script src="/admin/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/admin/AdminLTE/dist/js/app.min.js"></script>
+	<script src="/admin/js/viewer.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/plugins/moment/moment.min.js"></script>
+<script src="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+	<script type="text/javascript" src="/admin/js/develop/common.js"></script>
+	<script type="text/javascript">
+		    var token = USER.get_token();   //用户登录的token  
+		    var billSum = 0; //资料数量
+    $(document).ready(function () {
+        
+//      var token = USER.get_token();   //用户登录的token
+		var certType = 'per';
+        //保存身份证信息的点击事件
+        Fillmerchantclass('merchant_name');       //填充来源选项
+        $('.credit_request_reset').click(function () {
+        	location.href = '/admin/work/bidding/bidding.html';
+        });
+        //提交申请
+        var getId = GetQueryString('id');
+        var getInId = GetQueryString('item_instance_id');
+        
+
+        function sizeExchange(size){
+        	if(size < 1000){
+        		return size.toFixed(2) + "B";
+        	} else if (size >= 1000 && size < 1000000){
+        		return (size/1000).toFixed(2) + "KB";
+        	} else if (size >= 1000000){
+        		return (size/1000000).toFixed(2) + "MB";
+        	}
+        }
+        
+       
+        
+        // 获取客户数据
+        $.ajax({
+                url:  apiurl + 'Jcr/jcd/getcsrinfo/',
+                data: {'token':token,'csr_id':GetQueryString('id')},
+                dataType: 'json',
+                'success': function (r) {
+                    if(r.error_no == 200){
+//                  	console.log(JSON.stringify(r))
+                    	hasscore = r.result.csr.has_score;
+                    	// 判断是否为首次/是否有评分信息
+                    	if(hasscore == 2){
+                    	}
+                    	$('.customer_createtime').val(time_to_str_ymd(r.result.verifyinfo.foundtime)); //成立时间
+                    	$('.customer_primary').val(r.result.verifyinfo.main_business); //主营业务
+                    	if(r.result.verifyinfo.credit_score == 0 || r.result.verifyinfo.credit_score == 1 || r.result.verifyinfo.credit_score == 2){
+                   			$('.score1').val(r.result.verifyinfo.credit_score);
+                   		}
+                   		if(r.result.verifyinfo.manage_score == 0 || r.result.verifyinfo.manage_score == 1 || r.result.verifyinfo.manage_score == 2){
+                   			$('.score2').val(r.result.verifyinfo.manage_score);
+                   		}
+                   		if(r.result.verifyinfo.assets_score == 0 || r.result.verifyinfo.assets_score == 1 || r.result.verifyinfo.assets_score == 2){
+                   			$('.score3').val(r.result.verifyinfo.assets_score);
+                   		}
+                   		if(r.result.verifyinfo.debt_score == 0 || r.result.verifyinfo.debt_score == 1 || r.result.verifyinfo.debt_score == 2){
+                   			$('.score4').val(r.result.verifyinfo.debt_score);
+                   		}
+                   		if(r.result.verifyinfo.conducive_score == 0 || r.result.verifyinfo.conducive_score == 1 || r.result.verifyinfo.conducive_score == 2){
+                   			$('.score5').val(r.result.verifyinfo.conducive_score);
+                   		}
+                   		
+                   	
+                    	// 申请类型判断   个人/车商
+                    	if(r.result.verifyinfo.verify_type == 2){
+                    		certType = "sel";
+                    		$(".typeSel").css('display','block');
+							$(".typePer").css('display','none');
+							$(".merchant_name").val('商户认证');
+                    	}
+                    	$('.customer_name').val(r.result.verifyinfo.name); //客户姓名
+                    	$('.customer_sex').val(r.result.verifyinfo.sex); //客户性别
+                    	$('.customer_certificate_number').val(r.result.verifyinfo.certificate_number ); //客户身份证号
+                    	$('.customer_age').val(r.result.verifyinfo.age); //客户年龄
+                		$('.customer_telephone').val(r.result.verifyinfo.loginname); //客户手机号码
+                		$('.customer_licence').val(r.result.verifyinfo.business_license_number); //营业执照号
+                		$('.customer_company_name').val(r.result.verifyinfo.company_name); //公司名称
+                		$('.customer_shopname').val(r.result.verifyinfo.shopname); //店铺名称
+                		$('.customer_shopname1').val(r.result.verifyinfo.shopname); //店铺名称
+                		$('.customer_city').val(r.result.verifyinfo.area); //所在地区
+                		$('.customer_city1').val(r.result.verifyinfo.area); //所在地区
+                		$('.customer_address').val(r.result.verifyinfo.address); //详细地址
+                		$('.customer_money').val(floatFun.multi(r.result.csr.money_request , 10000)); //申请金额
+                		$('.customer_deadline').val(r.result.csr.deadline_request); //融资期限
+//              		$('.customer_car').val(r.result.csr.car_stock); //申请车辆
+                		$('.customer_per').val(r.result.csr.rate_request); //融资利率
+                		$('.merchant_res').val(r.result.csr.crsrequest_status == 1 ? '1' : '2'); //审批结果
+                		var che300 = JSON.parse(r.result.car.result);
+                		$('.carInfo').html("<td>" + r.result.csr.csr_no + "</td><td>" + r.result.car.model_name + "</td><td>" + (r.result.csr.car_type == 1? '新车' : '二手车') + "</td><td>" + floatFun.multi(r.result.csr.money , 10000) + "元</td><td>" + r.result.csr.rate + "%</td><td>" + r.result.csr.deadline + "天</td><td>" + r.result.csrimages[0].filename + "</td><td>" + setRate(r.result.bills[0].status,r.result.bills[0].finance_amount,r.result.bills[0].total_finance) + "</td>")
+//              		if(r.result.imgs.length > 0){
+//              			putSource(loadSources(r.result.imgs))
+//              		}
+//              		SOURCE._data || {}
+                    } else {
+                    	
+                    }
+                },
+                'error': function (r) {
+                	
+                }
+            });
+    });
+    // 删除资料li
+    function delThis(_this){
+    	$(_this).parent().remove();
+    }
+    // 融资进度转换
+    function setRate(status,num1,num2){
+    	if(status == 'VERIFY_FAILED'){
+    		return '已被拒';
+    	} else if (status == 0){
+    		return '审核中';
+    	} else {
+    		if(num1 == 0 || num2 == 0){
+    			return '0%';
+    		} else {
+    			return (Math.floor(num1 / num2 * 100) + '%')
+    		}
+    	}
+    }
+		
+		
+		
+//		var token = USER.get_token();
+//  var work_id = <?php echo intval($detail['id']) ?>;
+//  var item_instance_id = <?php echo intval($item_instance_id) ?>;
+//  $(function () {
+//      $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+//      loadSources(token, work_id, function (sources) {
+//          SOURCE.init({
+//              data: sources,
+//              onChange: function (Class) {
+//                  $('#source_length').text('共' + SOURCE.get_length(Class) + '张');
+//              }
+//          });
+//          SOURCE.show();
+//          $('#source_type').find('a').click(function () {//图片类别发生变化时重新加载插件
+//              if ($(this).attr('data-type') != SOURCE.current_Class) {
+//                  if ($(this).attr('data-edit') == 1) {
+//                      $('#source_button').css('color', '#3c8dbc');
+//                      $('#source_button').find('input').prop('disabled', false);
+//                  } else {
+//                      $('#source_button').find('a').css('color', '#ccc');
+//                      $('#source_button').find('input').prop('disabled', true);
+//                  }
+//                  $('#source_type button span:eq(0)').text($(this).text());
+//                  SOURCE.show($(this).attr('data-type'));
+//              }
+//          });
+//          $('#source_type').find('a:eq(0)').click();
+//      });
+//      $('#submit button').click(function () {
+//          $('#submit button').prop('disabled', true);
+//          var status = $(this).attr('data-status');
+//          var data = {
+//              token: token,
+//              work_id: work_id,
+//              item_instance_id: item_instance_id,
+//              type: status,
+//              inquire_result: $('select[name=inquire_result]').val(),
+//              inquire_description: $('textarea[name=inquire_description]').val()
+//          }
+//          $.ajax({
+//              url:  '/Api/workplatform/inquire',
+//              data: data,
+//              dataType: 'json',
+//              'success': function (r) {
+//                  $('#submit button').prop('disabled', false);
+//                  var modal = $('#myModal');
+//                  modal.find('.modal-body').text(r.error_msg);
+//                  modal.modal('show');
+//                  $('.modal_close').click(function () {
+//                      window.location.href = '/Admin/work/inquire';
+//                  });
+//              },
+//              'error': function (r) {
+//                  $('#submit button').prop('disabled', false);
+//              }
+//          });
+//      });
+//  })
+	</script>
+	</html>

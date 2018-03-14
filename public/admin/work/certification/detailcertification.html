@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>林润万车后台管理中心</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!--include('common.css')-->
+		<link rel="shortcut icon" type="images/favicon.ico" href="/admin/images/favicon.ico" media="screen">
+		<link rel="stylesheet" href="/admin/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="/admin/AdminLTE/dist/css/AdminLTE.min.css" />
+		<link rel="stylesheet" type="text/css" href="/admin/AdminLTE/dist/css/skins/skin-blue.min.css" />
+		
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/imgviewer/viewer.min.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload_ec8bd4e.css">
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload-ui_8be8b42.css">
+<noscript><link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload-noscript_77b97d2.css"></noscript>
+<noscript><link rel="stylesheet" href="/admin/AdminLTE/plugins/jQuery-File-Upload-master/css/jquery.fileupload-ui-noscript_f95c011.css"></noscript>
+<link rel="stylesheet" href="/admin/css/zoom.css">
+<link rel="stylesheet" href="/admin/css/viewer.css">
+<style type="text/css">
+			.blur {
+				border: 1px solid red;
+			}
+			
+			input:disabled {
+				background-color: #fff;
+			}
+			
+			body {
+				min-width: 1600px;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+			<!--include('common/header')-->
+			<header class="main-header">
+				<a href="/admin/home.html" class="logo">
+					<span class="logo-mini"><b>A</b>LT</span>
+					<span class="logo-lg"><b>IFcar</b></span>
+				</a>
+
+				<nav class="navbar navbar-static-top" role="navigation">
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+						<span class="sr-only">Toggle navigation</span>
+					</a>
+					<!-- Navbar Right Menu -->
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<li class="dropdown messages-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 4 messages</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+													</div>
+													<h4>
+                                                    Support Team
+                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                </h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">See All Messages</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown notifications-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 10 notifications</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<i class="fa fa-users text-aqua"></i> 5 new members joined today
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">View all</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown tasks-menu">
+								<ul class="dropdown-menu">
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="/auth/changepassword">
+													<h3>
+                                                 修改密码
+                                             </h3>
+												</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="user-image avatar" alt="User Image">
+
+									<span class="hidden-xs usernameWrite"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<!-- The user image in the menu -->
+									<li class="user-header">
+										<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+
+										<p>
+											<span class="accountWrite"></span>
+											<small class="usernameWrite"></small>
+										</p>
+									</li>
+									<li class="user-footer">
+										<div class="pull-left">
+											<a href="/admin/auth/changepassword" class="btn btn-default btn-flat changepassword">reset</a>
+										</div>
+										<div class="pull-right">
+											<a href="#" class="btn btn-default btn-flat signout">Sign out</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!-- 鼠标移动 -->
+					<aside class="control-sidebar control-sidebar-dark">
+						<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+							<li class="active">
+								<a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a>
+							</li>
+							<li>
+								<a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="control-sidebar-home-tab">
+								<h3 class="control-sidebar-heading">Recent Activity</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+											<div class="menu-info">
+												<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+												<p>Will be 23 on April 24th</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+								<h3 class="control-sidebar-heading">Tasks Progress</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<h4 class="control-sidebar-subheading">
+                                        Custom Template Design
+                                        <span class="pull-right-container">
+                                          <span class="label label-danger pull-right">70%</span>
+                                      </span>
+                                  </h4>
+
+											<div class="progress progress-xxs">
+												<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+							</div>
+							<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+							<div class="tab-pane" id="control-sidebar-settings-tab">
+								<form method="post">
+									<h3 class="control-sidebar-heading">General Settings</h3>
+
+									<div class="form-group">
+										<label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+										<p>
+											Some information about this general settings option
+										</p>
+									</div>
+								</form>
+							</div>
+						</div>
+					</aside>
+					<div class="control-sidebar-bg"></div>
+				</nav>
+			</header>
+			<!--include('common/sidebar')-->
+			<aside class="main-sidebar">
+				<title>
+					<?php if(isset($title)) {echo $title;}?>
+				</title>
+				<section class="sidebar">
+					<div class="user-panel">
+						<div class="pull-left image">
+							<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+						</div>
+						<div class="pull-left info">
+							<p class="usernameWrite">
+
+							</p>
+							<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+						</div>
+					</div>
+					<form action="#" method="get" class="sidebar-form">
+						<div class="input-group">
+							<input type="text" name="q" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+						</div>
+					</form>
+					<ul class="sidebar-menu">
+						<li class="treeview active" cid="20">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>工作台</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu" cid="20">
+
+								<li methodid="280" class="active">
+									<a href="/admin/work/certification/certification.html">认证申请</a>
+								</li>
+								<li methodid="281">
+									<a href="/admin/work/financing/financing.html">融资申请</a>
+								</li>
+								<li methodid="282">
+									<a href="/admin/work/bidding/bidding.html">上标申请</a>
+								</li>
+								<li methodid="283">
+									<a href="/admin/work/repay/repay.html">客户待还款</a>
+								</li>
+								<li methodid="288">
+									<a href="/admin/work/transfer/transfer.html">客户待过户</a>
+								</li>
+								<li methodid="284">
+									<a href="/admin/work/certificationRecord/certificationRecord.html">认证申请记录</a>
+								</li>
+								<li methodid="285">
+									<a href="/admin/work/financingRecord/financingRecord.html">融资申请记录</a>
+								</li>
+								<li methodid="286">
+									<a href="/admin/work/biddingRecord/biddingRecord.html">上标申请记录</a>
+								</li>
+								<li methodid="293">
+									<a href="/admin/work/transferRecord/transferRecord.html">已过户记录</a>
+								</li>
+								<li methodid="294">
+									<a href="/admin/work/manage/manage.html">车商信息管理</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="treeview" cid="12">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>用户权限</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu " cid="12">
+
+								<li methodid="251">
+									<a href="/admin/role/adduser/adduser.html">添加用户</a>
+								</li>
+								<li methodid="252">
+									<a href="/admin/role/userrole/userrole.html">用户角色</a>
+								</li>
+								<li methodid="253">
+									<a href="/admin/role/roleset/roleset.html">角色设置</a>
+								</li>
+								<!--<li methodid="289">
+									<a href="/admin/role/version/version.html">APP版本控制</a>
+								</li>-->
+							</ul>
+						</li>
+					</ul>
+					<!-- /.sidebar-menu -->
+				</section>
+				<!-- /.sidebar -->
+			</aside>
+			<div class="content-wrapper">
+				<section class="content">
+<div class="content-wrappers">
+</div>
+<div class="container1">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">认证信息</h3>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="row margin-bottom">
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">客户姓名</span>
+									<input type="text" class="form-control customer_name" placeholder="" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">性别</span>
+									<input type="text" class="form-control customer_sex" placeholder="" disabled="disabled">
+								</div>
+							</div>
+						</div>
+						<div class="row margin-bottom">
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">身份证号</span>
+									<input type="text" class="form-control customer_certificate_number" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">年龄</span>
+									<input type="text" class="form-control customer_age" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+						</div>
+						<div class="row margin-bottom">
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">手机号</span>
+									<input type="text" class="form-control customer_telephone" placeholder="" maxlength="18" disabled="disabled">
+								</div>
+							</div>
+						</div>
+						<div class="row margin-bottom">
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">认证类型</span>
+									<select id="merchant_name" class="form-control merchant_name">
+										<option value="1">个体认证</option>
+										<option value="2">商户认证</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row margin-bottom typeSel" style="display: none;">
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">营业执照号</span>
+									<input type="text" class="form-control customer_licence" placeholder="" maxlength="18">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">公司名称</span>
+									<input type="text" class="form-control customer_company_name" placeholder="" maxlength="18">
+								</div>
+							</div>
+						</div>
+						<div class="row margin-bottom typeSel" style="display: none;">
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">店铺名称</span>
+									<input type="text" class="form-control customer_shopname1" placeholder="" maxlength="18">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">所在地区</span>
+									<input type="text" class="form-control customer_city1" placeholder="" maxlength="18">
+								</div>
+							</div>
+						</div>
+						<div class="row margin-bottom typePer">
+							<div class="col-md-12">
+								<div class="input-group">
+									<span class="input-group-addon">店铺名称</span>
+									<input type="text" class="form-control customer_shopname" placeholder="" maxlength="18">
+								</div>
+							</div>
+						</div>
+						<div class="row margin-bottom typePer">
+							<div class="col-md-6">
+								<div class="input-group">
+									<span class="input-group-addon">所在地区</span>
+									<input type="text" class="form-control customer_city" placeholder="" maxlength="18">
+								</div>
+							</div>
+						</div>
+						<div class="row margin-bottom">
+							<div class="col-md-12">
+								<div class="input-group">
+									<span class="input-group-addon">详细地址</span>
+									<input type="text" class="form-control customer_address" placeholder="" maxlength="18">
+								</div>
+							</div>
+						</div>
+						<div class="row margin-bottom">
+							<div class="col-md-12">
+								<div class="input-group">
+									<span class="input-group-addon">认证结果</span>
+									<select id="merchant_res" class="form-control merchant_res">
+										<option value="">请选择</option>
+										<option value="1">通过</option>
+										<option value="4">拒绝</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="form-group" id="submit">
+							<button type="submit" data-status="2" class="btn btn-default credit_request_reset" style="width: 100px;height: 40px;">
+                            取消
+                        </button>
+							<button type="submit" data-status="1" class="btn btn-success credit_request_submit" style="width: 100px;height: 40px;margin-left: 10px;">
+                            提交
+                        </button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6" style="position: relative;overflow: hidden;osition: fixed;height: 603px;">
+			<div style="width: auto;display: block;pmargin-right: 15px;" id="source_window">
+				<div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title">认证照片</h3>
+					</div>
+					
+					<div style="background: #ddd;">
+						<div id="galley">
+							<ul class="pictures"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" class="btn btn-default modal_close" data-dismiss="modal">Close</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+				</section>
+			</div>
+			<!--include('common/footer')-->
+			<footer class="main-footer">
+				<div class="pull-right hidden-xs">
+					Anything you want
+				</div>
+				<strong>Copyright &copy; 2017 <a href="#">ifcar</a>.</strong> All rights reserved.
+			</footer>
+
+			<aside class="control-sidebar control-sidebar-dark">
+				<!-- Create the tabs -->
+				<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+					<li class="active">
+						<a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a>
+					</li>
+					<li>
+						<a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a>
+					</li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<!-- Home tab content -->
+					<div class="tab-pane active" id="control-sidebar-home-tab">
+						<h3 class="control-sidebar-heading">Recent Activity</h3>
+						<ul class="control-sidebar-menu">
+							<li>
+								<a href="javascript:;">
+									<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+									<div class="menu-info">
+										<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+										<p>Will be 23 on April 24th</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<!-- /.control-sidebar-menu -->
+
+						<h3 class="control-sidebar-heading">Tasks Progress</h3>
+						<ul class="control-sidebar-menu">
+							<li>
+								<a href="javascript:;">
+									<h4 class="control-sidebar-subheading">
+                                Custom Template Design
+                <span class="pull-right-container">
+                  <span class="label label-danger pull-right">70%</span>
+                </span>
+                            </h4>
+
+									<div class="progress progress-xxs">
+										<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<!-- /.control-sidebar-menu -->
+
+					</div>
+					<!-- /.tab-pane -->
+					<!-- Stats tab content -->
+					<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+					<!-- /.tab-pane -->
+					<!-- Settings tab content -->
+					<div class="tab-pane" id="control-sidebar-settings-tab">
+						<form method="post">
+							<h3 class="control-sidebar-heading">General Settings</h3>
+
+							<div class="form-group">
+								<label class="control-sidebar-subheading">
+                            Report panel usage
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+								<p>
+									Some information about this general settings option
+								</p>
+							</div>
+							<!-- /.form-group -->
+						</form>
+					</div>
+					<!-- /.tab-pane -->
+				</div>
+			</aside>
+			<!-- /.control-sidebar -->
+			<!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+			<div class="control-sidebar-bg"></div>
+		</div>
+	</body>
+<script type="text/javascript" src="/admin/js/jquery-3.2.1.min.js"></script>
+	<script src="/admin/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/admin/AdminLTE/dist/js/app.min.js"></script>
+	<script src="/admin/js/viewer.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/plugins/moment/moment.min.js"></script>
+<script src="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+	<script type="text/javascript" src="/admin/js/develop/common.js"></script>
+	<script type="text/javascript">
+		    var token = USER.get_token();   //用户登录的token  
+    $(document).ready(function () {
+        FillSheng('sheng', '', '');    //填充省
+        FillShi('sheng', 'shi', '0', '');  //填充市
+        FillQu('shi', 'qu', '0');//填充区
+        //选中项变化    
+        $("#sheng").change(function(){            //当省的内容改变的时候，触发市和区的内容改变     
+            FillShi('sheng', 'shi', '', '');  //填充市
+            FillQu('shi', 'qu', '');//填充区
+        })
+        $("#shi").change(function(){               //当市的内容改变的时候，触发区的内容改变
+            FillQu('shi', 'qu', '');//填充区
+        })  
+        var token = USER.get_token();   //用户登录的token
+        var getId = GetQueryString('id');
+        //保存身份证信息的点击事件
+//      Fillmerchantclass('merchant_name');       //填充来源选项
+		var certType = 'per';
+		$("#merchant_name").on('change',function(){
+			if($(this).val() == 1){
+				$(".typeSel").css('display','none');
+				$(".typePer").css('display','block');
+				certType = 'per';
+			} else if($(this).val() == 2){
+				$(".typeSel").css('display','block');
+				$(".typePer").css('display','none');
+				certType = 'sel';
+			}
+		})
+		//个人与商户输入的店铺名称与所在地区value同步
+		$(".customer_city").on('change',function(){
+			$(".customer_city1").val($(".customer_city").val());
+		})
+		$(".customer_city1").on('change',function(){
+			$(".customer_city").val($(".customer_city1").val());
+		})
+		$(".customer_shopname").on('change',function(){
+			$(".customer_shopname1").val($(".customer_shopname").val());
+		})
+		$(".customer_shopname1").on('change',function(){
+			$(".customer_shopname").val($(".customer_shopname1").val());
+		})
+        $('.credit_request_reset').click(function () {
+//          $("input").each(function(){ // 重置功能
+//          	if(!$(this).attr('disabled')){
+//          		$(this).val('')
+//          	}
+//          });
+			location.href = '/admin/work/certification/certification.html';
+        });
+        //提交申请
+        $('.credit_request_submit').click(function () {
+        	$(".customer_sex").val(discriCard($('.customer_certificate_number').val()));
+            //验证是否为空
+            if (checkempty('customer_shopname, customer_city, customer_address') == false) {
+                var modal = $('#myModal');
+                modal.find('.modal-body').text('请填写完整');
+                modal.modal('show');
+                return false;
+            }
+            if(certType == 'sel'){
+            	if (checkempty('customer_licence, customer_company_name') == false) {
+            		var modal = $('#myModal');
+                	modal.find('.modal-body').text('请填写完整');
+                	modal.modal('show');
+                	return false;
+            	}
+            }
+            if($('#merchant_res').val() == ''){
+            	var modal = $('#myModal');
+                modal.find('.modal-body').text('请填写完整');
+                modal.modal('show');
+                return false;
+            }
+            $('.credit_request_submit').prop('disabled', true);
+            //表单需要提交的参数
+            var param = {
+            	'token':token,
+            	'verify_id':getId,
+            	'verify_type':$("#merchant_name").val(),
+            	'shopname':$('.customer_shopname').val(),
+            	'area':$('.customer_city').val(),
+            	'address':$('.customer_address').val(),
+            	'verify_result':$('#merchant_res').val(),
+            }
+            if(certType == 'sel'){
+            	param.business_license_number = $('.customer_licence').val();
+            	param.company_name = $('.customer_company_name').val();
+            }
+            $.ajax({
+                url:  apiurl + "Jcr/jcd/handleverify/",
+                data: param,
+                type: "POST",
+                dataType: 'json',
+                success: function (r) {
+                    $('.credit_request_submit').prop('disabled', false);
+                    var modal = $('#myModal');
+                    modal.find('.modal-body').text(r.error_msg);
+                    modal.modal('show');
+                    if(r.error_no == 200){
+                    	setTimeout(function(){
+                    		location.href = '/admin/work/certification/certification.html';
+                    	},500)
+                    }
+                },
+                error:function(r){
+                    $('.credit_request_submit').prop('disabled', false);
+                }
+            });
+
+        });
+       function putSource(sources) {
+            SOURCE.init({
+                data: sources,
+                onChange: function (Class) {
+//                  $('#source_length').text('共' + SOURCE.get_length(Class) + '张');
+                },
+                onRemove: function (Class, obj) {
+                	return;
+                    if (!img_delete.hasOwnProperty(Class)) {
+                        img_delete = {
+                            'source_type': SOURCE._data[Class]['source_type'],
+                            'source_lists': [],
+                        }
+                        img_delete.source_lists.push(obj);
+                    }
+                }
+            });
+            SOURCE.show();
+        }
+//      SOURCE.init({onRemove: function (Class) {
+//              $('[data-class="' + Class + '"]').next().next().next().text('共' + SOURCE.get_length(Class) + '张');
+//          }});
+//        SOURCE.data_append();
+//        SOURCE.show('idcard');
+        var source_select = function (id) {
+            var n = $('#' + id);
+            n.parent().parent().children().each(function () {
+                $(this).children().last().removeClass('text-green');
+            });
+            n.parent().children().last().addClass('text-green');
+        }
+        $('#source_type1,#source_type2,.source_length').click(function () {//图片类别发生变化时重新加载插件
+            if ($(this).attr('data-class') != SOURCE.current_Class) {
+                SOURCE.show($(this).attr('data-class'));
+                source_select($(this).attr('id'));
+            }
+        });
+        
+        
+        // 获取客户数据
+        $.ajax({
+                url:  apiurl + 'Jcr/jcd/getverifyinfo/',
+                data: {'token':token,'verify_id':GetQueryString('id')},
+                dataType: 'json',
+                'success': function (r) {
+                    if(r.error_no == 200){
+                    	// 切换商户认证
+                    	if(r.result.verify_type == 2){
+                    		certType = 'sel';
+                    		$("#merchant_name").val(2);
+                    		$(".typeSel").css('display','block');
+							$(".typePer").css('display','none');
+                    	}
+                    	$('.customer_name').val(r.result.name); //客户姓名
+                    	$('.customer_sex').val(r.result.sex); //客户性别
+                    	$('.customer_certificate_number').val(r.result.certificate_number ); //客户身份证号
+                    	$('.customer_age').val(r.result.age); //客户年龄
+                		$('.customer_telephone').val(r.result.loginname); //客户手机号码
+                		$('.customer_licence').val(r.result.business_license_number); //营业执照号
+                		$('.customer_company_name').val(r.result.company_name); //公司名称
+                		$('.customer_shopname').val(r.result.shopname); //店铺名称
+                		$('.customer_shopname1').val(r.result.shopname); //店铺名称
+                		$('.customer_city').val(r.result.area); //店铺名称
+                		$('.customer_city1').val(r.result.area); //店铺名称
+                		$('.customer_address').val(r.result.address); //店铺名称
+                		putSource(loadSources(r.result.imgs))
+//              		SOURCE._data || {}
+                    } else {
+                    	
+                    }
+                },
+                'error': function (r) {
+                	
+                }
+            });
+
+    });
+		
+		
+		
+//		var token = USER.get_token();
+//  var work_id = <?php echo intval($detail['id']) ?>;
+//  var item_instance_id = <?php echo intval($item_instance_id) ?>;
+//  $(function () {
+//      $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+//      loadSources(token, work_id, function (sources) {
+//          SOURCE.init({
+//              data: sources,
+//              onChange: function (Class) {
+//                  $('#source_length').text('共' + SOURCE.get_length(Class) + '张');
+//              }
+//          });
+//          SOURCE.show();
+//          $('#source_type').find('a').click(function () {//图片类别发生变化时重新加载插件
+//              if ($(this).attr('data-type') != SOURCE.current_Class) {
+//                  if ($(this).attr('data-edit') == 1) {
+//                      $('#source_button').css('color', '#3c8dbc');
+//                      $('#source_button').find('input').prop('disabled', false);
+//                  } else {
+//                      $('#source_button').find('a').css('color', '#ccc');
+//                      $('#source_button').find('input').prop('disabled', true);
+//                  }
+//                  $('#source_type button span:eq(0)').text($(this).text());
+//                  SOURCE.show($(this).attr('data-type'));
+//              }
+//          });
+//          $('#source_type').find('a:eq(0)').click();
+//      });
+//      $('#submit button').click(function () {
+//          $('#submit button').prop('disabled', true);
+//          var status = $(this).attr('data-status');
+//          var data = {
+//              token: token,
+//              work_id: work_id,
+//              item_instance_id: item_instance_id,
+//              type: status,
+//              inquire_result: $('select[name=inquire_result]').val(),
+//              inquire_description: $('textarea[name=inquire_description]').val()
+//          }
+//          $.ajax({
+//              url:  '/Api/workplatform/inquire',
+//              data: data,
+//              dataType: 'json',
+//              'success': function (r) {
+//                  $('#submit button').prop('disabled', false);
+//                  var modal = $('#myModal');
+//                  modal.find('.modal-body').text(r.error_msg);
+//                  modal.modal('show');
+//                  $('.modal_close').click(function () {
+//                      window.location.href = '/Admin/work/inquire';
+//                  });
+//              },
+//              'error': function (r) {
+//                  $('#submit button').prop('disabled', false);
+//              }
+//          });
+//      });
+//  })
+	</script>
+	</html>

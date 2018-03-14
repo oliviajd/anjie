@@ -1,0 +1,329 @@
+@@include('../../../source/header.html')
+<link rel="stylesheet" href="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+@@include('../../../source/contentTop2.html')
+<div class="content-wrappers">
+    <!-- Content Header (Page header) -->
+ <!--    <section class="content-header">
+        <h1>
+            征信报告
+            <small>home visit to sign</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/Admin"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="/Admin/work/inquire">征信报告</a></li>
+            <li class="active">征信报告列表</li>
+        </ol>
+    </section> -->
+</div><br/>
+<div class="container1">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+            <div class="box-body">
+                <div class="box-header">
+                    <button type="button" class="status btn btn-primary handle_button" value= "1">待认领案件</button>
+                    <button type="button" class="status btn btn-default wait_handle_button" value= "2">待处理案件</button> 
+                </div>
+                <div class="box-body">
+                    <div class="row margin-bottom">
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    客户姓名：
+                                </span>
+                                <input type="text" name="request_no" class="form-control search_name" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    店铺名称：
+                                </span>
+                                <input type="text" name="customer_name" class="form-control search_shop" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    车辆型号：
+                                </span>
+                                <input type="text" name="customer_car" class="form-control search_car" placeholder="">
+                                <!--<span class="input-group-addon">天</span>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-bottom">
+                        <!-- <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    状态：
+                                </span>
+                                <select name="search[status]" class="form-control">
+                                    <option value="1">请选择</option>
+                                    <option value="2">未处理</option>
+                                    <option value="3">暂存</option>
+                                    <option value="4">补件</option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <div class="col-xs-7">
+                            <div class="input-group">
+
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <span class="input-group-addon">
+                                    申请时间：
+                                </span>
+                                <input type="text" class="form-control pull-right" id="reservationtime">
+                                
+                            </div>
+                        </div>
+                        <!--<div class="col-xs-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    融资利率：
+                                </span>
+                            	<input type="text" class="form-control pull-right search_per">
+                                <span class="input-group-addon">
+              %
+                                </span>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="row margin-bottom">
+                    	<div class="col-xs-1">
+                        	<span class="input-group-btn">
+                                <button type="button" id="search" class="btn btn-info btn-flat">查询</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                    <table id="example1" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <!-- <th>商户编号</th> -->
+                                <th>编号</th>
+                                <th>客户姓名</th>
+                                <th>融资单号</th>
+                                <th>手机号码</th>
+                                <th>车辆型号</th>
+                                <th>车辆类型</th>
+                                <th>融资金额</th>
+                                <!--<th>融资期限</th>-->
+                                <th>融资利率</th>
+                                <th>店铺名称</th>
+                                <th>所在地区</th>
+                                <th>申请时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default modal_close" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@@include('../../../common/common.html')
+<script src="/admin/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/admin/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/admin/AdminLTE/plugins/moment/moment.min.js"></script>
+<script src="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript">
+    var token = USER.get_token();
+    var start_time ='';
+    var end_time ='';
+    $('#reservationtime').on('apply.daterangepicker',function(ev, picker) {
+         start_time =  Date.parse(picker.startDate) / 1000;
+         end_time = Date.parse(picker.endDate) / 1000;;
+    }); 
+    $('#reservationtime').on('outside.daterangepicker',function(ev, picker) {
+         start_time =  Date.parse(picker.startDate) / 1000;
+         end_time = Date.parse(picker.endDate) / 1000;;
+    });
+    Fillproductname('product_name');          //填充产品选项
+    var task_deal = function (id, item_instance_id, user_id) {
+        window.location.href = '/admin/work/financing/detailfinancing.html?id=' + id + '&item_instance_id=' + item_instance_id + '&user_id=' + user_id;
+    }
+    $(function () {
+        var oStartDate = new Date();var oEndDate = new Date();oStartDate.setDate(oStartDate.getDate() - 7);oStartDate.setHours(0,0,0);oEndDate.setHours(23,59,59);$('#reservationtime').daterangepicker({showDropdowns:true,timePicker24Hour:true,startDate:oStartDate,endDate:oEndDate,timePicker: true, timePickerIncrement: 1, format: 'MM/DD/YYYY h:mm A'});
+        start_time =  Date.parse(oStartDate) / 1000;
+    	end_time = Date.parse(oEndDate) / 1000;
+        $('.status').click(function () {   //点击效果
+            $('.status').removeClass("btn-primary");
+            $('.status').removeClass("btn_status");
+            $('.status').addClass("btn-default");
+            $(this).removeClass("btn-default");
+            $(this).addClass("btn-primary");
+            $(this).addClass("btn_status");
+            var status = $(this).val();
+            $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                //重写ajax 分页参数
+                json.page = Math.floor(json.start / json.length) + 1;
+                json.size = json.length || 10;
+                //搜索条件
+                json.type = status;
+            });
+            table.ajax.reload();
+        });
+        $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+            //重写ajax 分页参数
+            json.page = Math.floor(json.start / json.length) + 1;
+            json.size = json.length || 10;
+            json.sort = '3';
+        });
+        $('input[name="search[keyword]"]').keyup(function (e) {
+            if (e.which == 13) {
+                $('#search').click();
+            }
+        });
+        $('#search').click(function () {
+            $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                //重写ajax 分页参数
+                json.page = Math.floor(json.start / json.length) + 1;
+                json.size = json.length || 10;
+                //搜索条件
+                json.car_model = $('.search_car').val();
+                json.name = $('.search_name').val();
+//              json.rate = $('.search_per').val();
+                json.shopname = $('.search_shop').val();
+                json.start_time= start_time;
+                json.end_time= end_time;
+            });
+            table.ajax.reload();
+        });
+
+        var table = $("#example1").DataTable({
+            "processing": true,
+            "serverSide": true,
+            "paginate": true,
+            'searching': false,
+            'bAutoWidth': true,
+            "fnDrawCallback": function(){ //每次填充一行时，先获取这一行的第一列，赋值为序号。
+    			this.api().column(0).nodes().each(function(cell, i) {
+         　　				cell.innerHTML =  i + 1;
+    			});
+	        },
+            "oLanguage": DataTable_language,
+            "ajax": {
+                'url': apiurl + "Jcr/jcd/getjcrlist/",
+                'data': {
+                    'token': token,
+                    'role_id': 202,
+                    'type': 1
+                },
+                'dataSrc': function (r) {
+                	console.log(r)
+                    if (r.error_no !== 200) {
+                        error_skip(r);
+                    } else {
+                        //重写ajax 返回的总数等参数
+                        r.recordsTotal = r.result.total;
+                        r.recordsFiltered = r.result.total;
+                        return r.result.rows;
+                    }
+                },
+            },
+            "columns": [
+                // {
+                //     "orderable": false,
+                //     "data": function (row) {
+                //         return row.merchant_no;
+                //     }
+                // },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.id;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.verify_info.name;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.csr_no;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.verify_info.loginname;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.car_model;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return (row.car_type == 1 ? '新车': '二手车');
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return floatFun.multi(row.money_request, 10000) + '元';
+                    },
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.rate_request + '%';
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.verify_info.shopname;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.verify_info.area;
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return time_to_str(row.create_time);
+                    }
+                },
+                {
+                    "orderable": false,
+                    "data": function (row) {
+                        return row.type == 1 ? '<button type="button" class="btn btn-default" onclick="task_pickup(this,' + row.id + ',' + row.item_instance_id + ',' + row.user_id + ');">认领</button>' :
+                                '<button type="button" class="btn btn-default" onclick="task_deal(' + row.id + ',' + row.item_instance_id + ',' + row.user_id + ');">处理</button>';
+                    }
+                },
+            ],
+//                    "order": [[1, 'asc']]
+        });
+
+    })
+</script>

@@ -1,0 +1,89 @@
+    @include('common.title')
+    <link rel="stylesheet" href="/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="/bower_components/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="/bower_components/AdminLTE/plugins/datepicker/datepicker3.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/bower_components/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/bower_components/AdminLTE/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/bower_components/AdminLTE/dist/css/skins/_all-skins.min.css">
+    <!-- treeview -->
+    <link rel="stylesheet" href="/bower_components/AdminLTE/plugins/bootstrap-treeview/bootstrap-treeview.min_16bd11d.css">
+</head>
+@extends('layouts.admin_template')
+@section('content')
+<div class="content-wrappers">
+                <!-- Content Header (Page header) -->
+               <!--  <section class="content-header">
+                    <h1>
+                        角色管理
+                        <small>role lists</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="#">角色管理</a></li>
+                        <li class="active">全部角色</li>
+                    </ol>
+                </section> -->
+
+                <!-- Main content -->
+                <section class="content">
+                    <div id="tree"></div>
+                </section>
+                <!-- /.content -->
+            </div>
+            @include('common/common')
+        <script src="/bower_components/AdminLTE/plugins/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+
+            <script>
+            $(function () {
+                var edit = false,add = false;
+                var methods = ROLE.get_method(); 
+                for(var i in methods) {
+                    // if (methods[i]['method_id'] == '177') {
+                        add = true;
+                    // } else if (methods[i]['method_id'] == '178') {
+                        edit = true;
+                    // }
+                }
+                ROLE.lists({
+                    'token': USER.get_token(),
+                    'callback': function (r) {
+                        if (r.error_no == 200) {
+                            var tree = [];
+                            for (var i in r.result.rows) {
+                                var row = r.result.rows[i];
+                                var tags_edit = edit ? ('<span style="display:block;" onclick="role_edit(' + row.role_id + ')"><i class="fa fa-cog"></i><span> 设置权限</span></span>') : false;
+                                var tags_add = add ? ('<span style="display:block;" onclick="role_add(' + row.role_id + ')"><i class="fa fa-plus"></i><span> 添加下级角色</span></span>') : false;
+                                r.result.rows[i]['text'] = row.title + '  <span class="text-muted" style="padding-left:10px;">' + (row.desc||'请添加描述') + '，共' + row.nums + '人</span>';
+                                r.result.rows[i]['tags'] = [];
+                                r.result.rows[i]['state'] = {expanded: r.result.rows.length > 100 ? false :true};
+                                if (tags_add) {
+                                    r.result.rows[i]['tags'].push(tags_add);
+                                }
+                                if (tags_edit && ((r.result.rows[0]['role_id'] != 1 && r.result.rows[i]['parent_id'] !=1) || (r.result.rows[0]['role_id'] == 1 && r.result.rows[i]['role_id'] != 1))) {
+                                    r.result.rows[i]['tags'].push(tags_edit);
+                                }
+                            }
+                            tree = listToTree(r.result.rows, {idKey: 'role_id', parentKey: 'parent_id', childrenKey: 'nodes'});
+                            $('#tree').treeview({data: tree, showTags: true});
+                        }
+                    }
+                })
+            });
+            var role_edit = function (role_id) {
+                window.location.href = '/Admin/role/editrole?role_id=' + role_id;
+            }
+            var role_add = function (parent_id) {
+                window.location.href = '/Admin/role/editrole?parent_id=' + parent_id;
+            }
+        </script>
+@endsection

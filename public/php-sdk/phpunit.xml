@@ -1,0 +1,18 @@
+<phpunit backupGlobals="true"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         bootstrap="tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="upyun test cases">
+            <file>./tests/SignatureTest.php</file>
+            <file>./tests/UpyunTest.php</file>
+            <file>./tests/Api/MultiTest.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>

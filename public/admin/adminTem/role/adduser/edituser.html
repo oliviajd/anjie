@@ -1,0 +1,220 @@
+@@include('../../../source/header.html')
+@@include('../../../source/contentTop9.html')
+<div class="content-wrappers">
+    <!-- Content Header (Page header) -->
+ <!--    <section class="content-header">
+        <h1>
+            征信报告
+            <small>home visit to sign</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/Admin"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="/Admin/work/inquire">征信报告</a></li>
+            <li class="active">征信报告列表</li>
+        </ol>
+    </section> -->
+</div><br/>
+<div class="container1">
+    <div class="row">
+        <div class="col-md-6  col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">编辑用户</div>
+                <div class="panel-body form-horizontal">
+                    <!-- <form> -->
+                        <!-- {{ csrf_field() }} -->
+
+                        <div class="form-group">
+                            <label for="account" class="col-md-4 control-label">账号(TEL)</label>
+
+                            <div class="col-md-6">
+                                <input id="account" type="text" class="form-control account" name="account" value="" required autofocus>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">业务区域</label>
+                            <div class="col-md-6">
+                                 <select name="search[status]" id='sheng' class="form-control sheng" >
+                                 </select>
+                                 <select name="search[status]" id='shi' class="form-control shi" >
+                                 </select>
+                                 <select name="search[status]"  id='qu' class="form-control qu" >
+                                 </select>
+                                <input id="area_add" type="text" class="form-control area_add" name="area_add" value="" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">姓名</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="name" class="form-control name" name="name" value="" required>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary editusersubmit">
+                                    提交
+                                </button>
+                                <button type="" class="btn cancel">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+@@include('../../../common/common.html')
+<!--<script src="/admin/AdminLTE/plugins/moment/moment.min.js"></script>
+<script src="/admin/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>-->
+<script type="text/javascript">
+	$(document).ready(function(){
+//      var provincecode = "<?php echo $provincecode?>";//GetQueryString('account')
+        var province = decodeURI(GetQueryString('province'));
+//      var citycode = "<?php echo $citycode?>";
+        var city = decodeURI(GetQueryString('city'));
+        var town = decodeURI(GetQueryString('town'));
+        var oldaccount = GetQueryString('account');
+        var oldname = decodeURI(GetQueryString('name'));
+        var oldadd = decodeURI(GetQueryString('area_add'));
+        $('#account').val(oldaccount);
+        $('#name').val(oldname);
+        $('#area_add').val(oldadd);
+//      if (citycode == '') {
+//          citycode = '0';
+//      }
+//      if (town == '') {
+//          town = '0';
+//      }
+        SetSheng(function(){
+        	if(province != '' && province != 0){
+        		$("#sheng").find("option[value='" + province + "']").attr("selected",true);
+				SetShi($("#sheng").val(),0,function(){
+					if(city != '' && city != 0){
+						$("#shi").find("option[value='" + city + "']").attr("selected",true);
+        				SetQu($("#shi").val(),0,function(){
+        					if(town != '' && town != 0){
+        						$("#qu").find("option[value='" + town + "']").attr("selected",true);
+        					}
+        				})
+					}
+        		})
+        	}
+        })
+        $("#sheng").change(function(){
+        	
+        	if($("#sheng").val() == 0){
+//      		$("#shi>option").attr("selected",false);
+//				$("#shi>option").eq(0).attr("selected",true);
+//				$("#qu>option").attr("selected",false);
+//				$("#qu>option").eq(0).attr("selected",true);
+				$("#shi").empty();
+				$("#qu").empty();
+				province = 0;
+				city = 0;
+        		town = 0;
+				return;
+			}
+        	SetShi($("#sheng").val(),province,function(){
+        		province = $("#sheng").val();
+        		$("#shi>option").attr("selected",false);
+        		$("#shi>option").eq(1).attr("selected",true);
+        		SetQu($("#shi").val(),city,function(){
+        			city = $("#shi").val();
+        			$("#qu>option").attr("selected",false);
+        			$("#qu>option").eq(1).attr("selected",true);
+        			town = $("#qu").val();
+        		})
+        	})
+        })
+        $("#shi").change(function(){
+        	
+        	if($("#shi").val() == 0){
+//      		$("#qu>option").attr("selected",false);
+//      		$("#qu>option").eq(0).attr("selected",true);
+//      		city = $("#shi").val();
+//      		town = $("#qu").val();
+				$("#qu").empty();
+				city = 0;
+        		town = 0;
+        		return;
+        	}
+        	SetQu($("#shi").val(),city,function(){
+        		city = $("#shi").val();
+        		$("#qu>option").attr("selected",false);
+        		$("#qu>option").eq(1).attr("selected",true);
+        		town = $("#qu").val();
+        	})
+        })
+        $("#qu").change(function(){
+        	town = $("#qu").val();
+        })
+//      FillSheng('sheng', provincecode, province);    //填充省
+//      FillShi('sheng', 'shi', citycode, city);  //填充市
+//      FillQu('shi', 'qu', town);//填充区
+        //选中项变化    
+//       $("#sheng").change(function(){            //当省的内容改变的时候，触发市和区的内容改变     
+//          FillShi('sheng', 'shi', '', '');  //填充市
+//          FillQu('shi', 'qu', '');//填充区
+//      })
+//      $("#shi").change(function(){               //当市的内容改变的时候，触发区的内容改变
+//          FillQu('shi', 'qu', '');//填充区
+//      })   
+      $('.cancel').click(function(){
+        window.location.href = '/admin/role/adduser/adduser.html';
+      });
+      $('.editusersubmit').click(function(){
+        
+        if(checkempty('account, sheng, shi, qu, name') == false) {
+            return false;
+        }
+        var aData = {
+                'account' : $('#account').val(),
+                'name'    : $('#name').val(),
+                'province': $('.sheng option:selected').text(),
+                'city'    : $('.shi option:selected').text(),
+                'town'    : $('.qu option:selected').text(),
+                'area_add':$('#area_add').val(),
+                'oldaccount':oldaccount,
+            };
+        $.ajax({
+               type:'post',
+               url:apiurl + 'Admin/role/edituserpost',
+               dataType: 'json',
+               data:{
+               		'token'   : USER.get_token(),
+                	'account' : $('#account').val(),
+                	'name'    : $('#name').val(),
+                	'province': $('.sheng option:selected').text(),
+                	'city'    : $('.shi option:selected').text(),
+                	'town'    : $('.qu option:selected').text(),
+                	'area_add':$('#area_add').val(),
+                	'oldaccount':oldaccount,
+             	},
+               success:function(data){
+                if (data.error_no !== 200) {
+                    alert(data.error_msg);
+                } else {
+                   alert(data.error_msg);
+                   window.location.href = '/admin/role/adduser/adduser.html';
+                }
+               },
+               error: function(XMLHttpRequest, textStatus, errorThrown) {
+ 					console.log(XMLHttpRequest.status);
+ 					console.log(XMLHttpRequest.readyState);
+ 					console.log(textStatus);
+ 					console.log(errorThrown)
+   				},
+         });
+      });
+    })
+</script>

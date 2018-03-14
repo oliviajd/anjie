@@ -1,0 +1,280 @@
+<style type="text/css">
+			.blur {
+				border: 1px solid red;
+			}
+			
+			input:disabled {
+				background-color: #fff;
+			}
+			
+			body {
+				min-width: 1600px;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+			<!--include('common/header')-->
+			<header class="main-header">
+				<a href="/admin/home.html" class="logo">
+					<span class="logo-mini"><b>A</b>LT</span>
+					<span class="logo-lg"><b>IFcar</b></span>
+				</a>
+
+				<nav class="navbar navbar-static-top" role="navigation">
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+						<span class="sr-only">Toggle navigation</span>
+					</a>
+					<!-- Navbar Right Menu -->
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<li class="dropdown messages-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 4 messages</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+													</div>
+													<h4>
+                                                    Support Team
+                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                </h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">See All Messages</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown notifications-menu">
+								<ul class="dropdown-menu">
+									<li class="header">You have 10 notifications</li>
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<i class="fa fa-users text-aqua"></i> 5 new members joined today
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">View all</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown tasks-menu">
+								<ul class="dropdown-menu">
+									<li>
+										<ul class="menu">
+											<li>
+												<a href="/auth/changepassword">
+													<h3>
+                                                 修改密码
+                                             </h3>
+												</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="user-image avatar" alt="User Image">
+
+									<span class="hidden-xs usernameWrite"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<!-- The user image in the menu -->
+									<li class="user-header">
+										<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+
+										<p>
+											<span class="accountWrite"></span>
+											<small class="usernameWrite"></small>
+										</p>
+									</li>
+									<li class="user-footer">
+										<div class="pull-left">
+											<a href="/admin/auth/changepassword" class="btn btn-default btn-flat changepassword">reset</a>
+										</div>
+										<div class="pull-right">
+											<a href="#" class="btn btn-default btn-flat signout">Sign out</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!-- 鼠标移动 -->
+					<aside class="control-sidebar control-sidebar-dark">
+						<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+							<li class="active">
+								<a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a>
+							</li>
+							<li>
+								<a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="control-sidebar-home-tab">
+								<h3 class="control-sidebar-heading">Recent Activity</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+											<div class="menu-info">
+												<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+												<p>Will be 23 on April 24th</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+								<h3 class="control-sidebar-heading">Tasks Progress</h3>
+								<ul class="control-sidebar-menu">
+									<li>
+										<a href="javascript:;">
+											<h4 class="control-sidebar-subheading">
+                                        Custom Template Design
+                                        <span class="pull-right-container">
+                                          <span class="label label-danger pull-right">70%</span>
+                                      </span>
+                                  </h4>
+
+											<div class="progress progress-xxs">
+												<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+											</div>
+										</a>
+									</li>
+								</ul>
+
+							</div>
+							<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+							<div class="tab-pane" id="control-sidebar-settings-tab">
+								<form method="post">
+									<h3 class="control-sidebar-heading">General Settings</h3>
+
+									<div class="form-group">
+										<label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+										<p>
+											Some information about this general settings option
+										</p>
+									</div>
+								</form>
+							</div>
+						</div>
+					</aside>
+					<div class="control-sidebar-bg"></div>
+				</nav>
+			</header>
+			<!--include('common/sidebar')-->
+			<aside class="main-sidebar">
+				<title>
+					<?php if(isset($title)) {echo $title;}?>
+				</title>
+				<section class="sidebar">
+					<div class="user-panel">
+						<div class="pull-left image">
+							<img src="/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle avatar" alt="User Image">
+						</div>
+						<div class="pull-left info">
+							<p class="usernameWrite">
+
+							</p>
+							<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+						</div>
+					</div>
+					<form action="#" method="get" class="sidebar-form">
+						<div class="input-group">
+							<input type="text" name="q" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+						</div>
+					</form>
+					<ul class="sidebar-menu">
+						<li class="treeview active" cid="20">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>工作台</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu" cid="20">
+
+								<li methodid="280">
+									<a href="/admin/work/certification/certification.html">认证申请</a>
+								</li>
+								<li methodid="281">
+									<a href="/admin/work/financing/financing.html">融资申请</a>
+								</li>
+								<li methodid="282">
+									<a href="/admin/work/bidding/bidding.html">上标申请</a>
+								</li>
+								<li methodid="283" class="active">
+									<a href="/admin/work/repay/repay.html">客户待还款</a>
+								</li>
+								<li methodid="288">
+									<a href="/admin/work/transfer/transfer.html">客户待过户</a>
+								</li>
+								<li methodid="284">
+									<a href="/admin/work/certificationRecord/certificationRecord.html">认证申请记录</a>
+								</li>
+								<li methodid="285">
+									<a href="/admin/work/financingRecord/financingRecord.html">融资申请记录</a>
+								</li>
+								<li methodid="286">
+									<a href="/admin/work/biddingRecord/biddingRecord.html">上标申请记录</a>
+								</li>
+								<li methodid="293">
+									<a href="/admin/work/transferRecord/transferRecord.html">已过户记录</a>
+								</li>
+								<li methodid="294">
+									<a href="/admin/work/manage/manage.html">车商信息管理</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="treeview" cid="12">
+							<a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span>用户权限</span>
+								<span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+							</a>
+							<ul class="treeview-menu " cid="12">
+
+								<li methodid="251">
+									<a href="/admin/role/adduser/adduser.html">添加用户</a>
+								</li>
+								<li methodid="252">
+									<a href="/admin/role/userrole/userrole.html">用户角色</a>
+								</li>
+								<li methodid="253">
+									<a href="/admin/role/roleset/roleset.html">角色设置</a>
+								</li>
+								<!--<li methodid="289">
+									<a href="/admin/role/version/version.html">APP版本控制</a>
+								</li>-->
+							</ul>
+						</li>
+					</ul>
+					<!-- /.sidebar-menu -->
+				</section>
+				<!-- /.sidebar -->
+			</aside>
+			<div class="content-wrapper">
+				<section class="content">
